@@ -1,0 +1,22 @@
+{
+  "name": "paulson-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio for Paulson J",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "validate": "html-validate index.html"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-terser": "^2.1.0",
+    "html-validate": "^11.5.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  }
+}
