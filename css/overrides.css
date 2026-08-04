@@ -1,0 +1,12 @@
+/* Small progressive enhancements kept separate from the compressed core stylesheet. */
+.site-nav { transition: box-shadow .2s, background .2s; }
+.scrolled .site-nav { background: rgba(255,255,255,.94); box-shadow: 0 5px 20px rgba(15,23,42,.06); }
+.navbar-toggler.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-toggler.is-open span:nth-child(2) { opacity: 0; }
+.navbar-toggler.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.portrait-frame img { aspect-ratio: auto; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}

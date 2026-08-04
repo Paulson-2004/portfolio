@@ -1,28 +1,22 @@
-(function($) {
-  "use strict"; // Start of use strict
-
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
-    }
-  });
-
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
-
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#sideNav'
-  });
-
-})(jQuery); // End of use strict
+/* Navigation state and restrained entrance animations. */
+(function () {
+  const header = document.querySelector('.site-header');
+  const navLinks = [...document.querySelectorAll('.nav-link')];
+  const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+  const toggle = document.querySelector('.navbar-toggler');
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+  const navObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+  }), { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+  sections.forEach(section => navObserver.observe(section));
+  if (toggle && window.jQuery) {
+    jQuery('.navbar-collapse').on('shown.bs.collapse', () => toggle.classList.add('is-open'));
+    jQuery('.navbar-collapse').on('hidden.bs.collapse', () => toggle.classList.remove('is-open'));
+  }
+  navLinks.forEach(link => link.addEventListener('click', () => { if (window.jQuery) jQuery('.navbar-collapse').collapse('hide'); }));
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+}());
