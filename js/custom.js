@@ -1,39 +1,28 @@
-'use strict';
+(function($) {
+  "use strict"; // Start of use strict
 
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const nav = document.querySelector('#sideNav');
-const collapseElement = document.querySelector('#navbarSupportedContent');
-const navLinks = [...document.querySelectorAll('.js-scroll-trigger[href^="#"]')];
-
-navLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const target = document.querySelector(link.hash);
-    if (!target) return;
-
-    event.preventDefault();
-    target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
-    history.replaceState(null, '', link.hash);
-
-    if (collapseElement.classList.contains('show')) {
-      bootstrap.Collapse.getOrCreateInstance(collapseElement).hide();
+  // Smooth scrolling using jQuery easing
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: (target.offset().top)
+        }, 1000, "easeInOutExpo");
+        return false;
+      }
     }
   });
-});
 
-const sections = [...document.querySelectorAll('main section[id]')];
-const observer = new IntersectionObserver((entries) => {
-  const visible = entries
-    .filter((entry) => entry.isIntersecting)
-    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-  if (!visible) return;
-  navLinks.forEach((link) => {
-    const active = link.hash === `#${visible.target.id}`;
-    link.classList.toggle('active', active);
-    if (active) link.setAttribute('aria-current', 'page');
-    else link.removeAttribute('aria-current');
+  // Closes responsive menu when a scroll trigger link is clicked
+  $('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
   });
-}, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.25, 0.5] });
 
-sections.forEach((section) => observer.observe(section));
-document.querySelector('#current-year').textContent = new Date().getFullYear();
+  // Activate scrollspy to add active class to navbar items on scroll
+  $('body').scrollspy({
+    target: '#sideNav'
+  });
+
+})(jQuery); // End of use strict
