@@ -19,4 +19,20 @@
   }
   navLinks.forEach(link => link.addEventListener('click', () => { if (window.jQuery) jQuery('.navbar-collapse').collapse('hide'); }));
   window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+  const lightbox = document.getElementById('certificate-lightbox');
+  const lightboxImage = document.getElementById('certificate-lightbox-image');
+  const lightboxTitle = document.getElementById('certificate-lightbox-title');
+  const closeLightbox = () => { lightbox.hidden = true; lightbox.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
+  document.querySelectorAll('.certificate-image').forEach(button => button.addEventListener('click', () => {
+    const title = button.dataset.certificateTitle;
+    lightboxImage.src = button.querySelector('img').src;
+    lightboxImage.alt = `Larger view of ${title}`;
+    lightboxTitle.textContent = title;
+    lightbox.hidden = false;
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightbox.querySelector('.certificate-lightbox-close').focus();
+  }));
+  document.querySelectorAll('[data-certificate-close]').forEach(element => element.addEventListener('click', closeLightbox));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
 }());
