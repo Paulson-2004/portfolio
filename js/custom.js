@@ -11,12 +11,6 @@
 
     if (year) year.textContent = new Date().getFullYear();
 
-    const setHeaderState = () => {
-      if (header) header.classList.toggle('scrolled', window.scrollY > 10);
-    };
-    setHeaderState();
-    window.addEventListener('scroll', setHeaderState, { passive: true });
-
     const setActiveLink = (id) => {
       navLinks.forEach((link) => {
         const isActive = link.getAttribute('href') === `#${id}`;
@@ -27,6 +21,22 @@
     };
 
     const sections = navLinks.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+    let scrollFrame;
+    const updateScrollState = () => {
+      if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+      const marker = window.scrollY + (window.innerHeight * 0.38);
+      const activeSection = sections.reduce((current, section) => (
+        section.offsetTop <= marker ? section : current
+      ), sections[0]);
+      if (activeSection) setActiveLink(activeSection.id);
+      scrollFrame = undefined;
+    };
+    const scheduleScrollState = () => {
+      if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateScrollState);
+    };
+    updateScrollState();
+    window.addEventListener('scroll', scheduleScrollState, { passive: true });
+
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
@@ -38,11 +48,6 @@
       }, { threshold: 0.12 });
       document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-      const navObserver = new IntersectionObserver((entries) => {
-        const visibleSection = entries.find((entry) => entry.isIntersecting);
-        if (visibleSection) setActiveLink(visibleSection.target.id);
-      }, { rootMargin: '-28% 0px -62% 0px', threshold: 0 });
-      sections.forEach((section) => navObserver.observe(section));
     } else {
       document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
     }
@@ -87,9 +92,17 @@
       });
       lightbox.querySelectorAll('[data-certificate-close]').forEach((element) => element.addEventListener('click', closeLightbox));
       lightbox.addEventListener('keydown', (event) => {
-        if (event.key === 'Tab') {
+        if (event.key !== 'Tab') return;
+        const focusable = Array.from(lightbox.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (!first || !last) return;
+        if (event.shiftKey && document.activeElement === first) {
           event.preventDefault();
-          closeButton.focus();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
         }
       });
     }
