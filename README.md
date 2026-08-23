@@ -1,6 +1,6 @@
 # Paulson J — Portfolio
 
-A fast, responsive portfolio for **Paulson J**, a Java Backend Developer and full-stack developer. It presents professional experience, selected projects, technical capabilities, education, certifications, and contact details in a recruiter-friendly single-page site.
+A fast, responsive portfolio for **Paulson J**, a Java Full Stack Developer and Software Developer. It presents professional experience, selected projects, technical capabilities, education, certifications, and contact details in a recruiter-friendly single-page site.
 
 ## Features
 
