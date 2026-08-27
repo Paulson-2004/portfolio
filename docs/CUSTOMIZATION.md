@@ -2,10 +2,10 @@
 
 ## Images
 
-- [x] Add a square professional headshot at `img/profile.png`.
-- [x] Add a wide personal banner at `img/profile-banner.png`.
-- [ ] Add screenshots for Secure PII Redaction System, EcoTrack, and College Fees Checker.
-- [ ] Update each matching image `src` and `alt` text in `index.html`.
+- [x] Add a square professional headshot at `img/profile.jpg`.
+- [x] Add screenshots for Secure PII Redaction System, EcoTrack, and College Fees Checker.
+- [x] Update each matching image `src` and `alt` text in `index.html`.
+- [ ] Keep future headshots/screenshots web-optimized (JPEG for photos, compressed PNG for UI screenshots) so the deployed site stays lightweight.
 
 ## Content and links
 
