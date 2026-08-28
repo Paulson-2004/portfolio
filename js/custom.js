@@ -1,13 +1,11 @@
 /* Progressive enhancements for navigation, reveal effects, and certificate previews. */
 (function () {
   function init() {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const header = document.querySelector('.site-header');
     const navLinks = Array.from(document.querySelectorAll('.nav-link'));
     const menuToggle = document.querySelector('.navbar-toggler');
     const collapse = document.querySelector('.navbar-collapse');
     const year = document.getElementById('year');
-    const hero = document.querySelector('.hero');
 
     if (year) year.textContent = new Date().getFullYear();
 
@@ -111,23 +109,6 @@
       if (event.key === 'Escape') closeLightbox();
     });
 
-    if (hero && !prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      let animationFrame;
-      hero.addEventListener('pointermove', (event) => {
-        const bounds = hero.getBoundingClientRect();
-        const x = ((event.clientX - bounds.left) / bounds.width * 100).toFixed(2);
-        const y = ((event.clientY - bounds.top) / bounds.height * 100).toFixed(2);
-        cancelAnimationFrame(animationFrame);
-        animationFrame = requestAnimationFrame(() => {
-          hero.style.setProperty('--pointer-x', `${x}%`);
-          hero.style.setProperty('--pointer-y', `${y}%`);
-        });
-      });
-      hero.addEventListener('pointerleave', () => {
-        hero.style.removeProperty('--pointer-x');
-        hero.style.removeProperty('--pointer-y');
-      });
-    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
