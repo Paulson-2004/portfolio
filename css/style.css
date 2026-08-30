@@ -83,7 +83,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .hero-links a,.text-link{font-size:.85rem;font-weight:600;color:var(--ink-soft);transition:color .2s}
 .hero-links i{font-size:1.05rem;margin-right:6px;color:var(--muted)}
 .hero-links a:hover,.text-link:hover{color:var(--accent)}
-.hero-portrait{position:relative;max-width:380px;width:100%;justify-self:end;display:flex;flex-direction:column;gap:14px}
+.hero-portrait{position:relative;max-width:430px;width:100%;margin-top:-32px;justify-self:end;display:flex;flex-direction:column;gap:14px}
 .portrait-frame{position:relative}
 .portrait-frame img{display:block;width:100%;height:auto}
 .portrait-caption{align-self:flex-start;margin:0;padding-left:14px;border-left:1px solid var(--accent);font:.78rem/1.5 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
@@ -243,7 +243,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
   .hero{min-height:auto;padding:64px 0 56px}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-copy{order:1}
-  .hero-portrait{order:2;justify-self:start;max-width:280px}
+  .hero-portrait{order:2;justify-self:start;max-width:316px;margin-top:0}
   .section{padding:72px 0}
   .split-heading,.contact-grid{grid-template-columns:1fr;gap:22px}
   .split-heading>p:not(.eyebrow){justify-self:start}
