@@ -79,7 +79,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .button-secondary:hover{border-color:var(--ink);color:var(--ink)}
 .button-light{background:#fff;color:var(--ink)}
 .button-light:hover{background:var(--paper-alt)}
-.hero-links{display:flex;gap:22px;margin-top:26px}
+.hero-links{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap;row-gap:12px}
 .hero-links a,.text-link{font-size:.85rem;font-weight:600;color:var(--ink-soft);transition:color .2s}
 .hero-links i{font-size:1.05rem;margin-right:6px;color:var(--muted)}
 .hero-links a:hover,.text-link:hover{color:var(--accent)}
@@ -189,6 +189,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .certificate-lightbox-content p{margin:12px 38px 0 2px;color:var(--ink);font:600 .88rem var(--sans)}
 .certificate-lightbox-close{position:absolute;top:-14px;right:-14px;z-index:2;width:34px;height:34px;border:1px solid var(--line-strong);border-radius:50%;background:#fff;color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer}
 
+/* ---------- recent updates: compact changelog ---------- */
+.section-updates{padding:72px 0 64px}
+.section-updates .section-heading{margin-bottom:32px}
+.updates-list{list-style:none;padding:0;margin:0;max-width:760px;border-top:1px solid var(--line)}
+.update-item{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.update-date{font:600 .74rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.update-desc{margin:0;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
+
 /* ---------- contact: flat, confident close ---------- */
 .contact-section{padding:96px 0;background:var(--ink);color:#fff}
 .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:center}
@@ -278,6 +286,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
   .modal-copy h2{font-size:1.5rem}
   .certificate-lightbox{padding:16px}
   .certificate-lightbox-content{padding:9px}
+  .section-updates{padding:54px 0 48px}
+  .update-item{grid-template-columns:1fr;gap:4px;padding:13px 0}
 }
 @media(max-width:400px){
   .hero-actions .button{width:100%}
