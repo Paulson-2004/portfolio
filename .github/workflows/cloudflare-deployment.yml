@@ -1,0 +1,155 @@
+name: Cloudflare Deployment Status
+
+'on':
+  push:
+    branches:
+      - main
+
+permissions:
+  deployments: write
+  checks: read
+
+jobs:
+  sync-deployment:
+    name: Sync Cloudflare Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create and Sync Deployment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const sha = context.sha;
+            const environmentUrl = 'https://portfolio.jpaulson2004.workers.dev/';
+            const expectedCheckName = 'Workers Builds: portfolio';
+
+            let deploymentId = null;
+
+            try {
+              // 1. Create a GitHub Deployment record
+              const deployment = await github.rest.repos.createDeployment({
+                owner,
+                repo,
+                ref: sha,
+                environment: 'production',
+                description: 'Cloudflare Workers production deployment',
+                auto_merge: false,
+                required_contexts: []
+              });
+
+              if (!deployment.data || !deployment.data.id) {
+                console.log('Unable to create deployment object:', deployment);
+                return;
+              }
+
+              deploymentId = deployment.data.id;
+              console.log(`Created GitHub Deployment #${deploymentId} for commit ${sha}`);
+
+              await github.rest.repos.createDeploymentStatus({
+                owner,
+                repo,
+                deployment_id: deploymentId,
+                state: 'in_progress',
+                description: 'Waiting for Cloudflare Workers build...',
+                environment_url: environmentUrl,
+                auto_inactive: true
+              });
+
+              // 2. Poll Cloudflare Workers check run until completion
+              const maxWaitMs = 10 * 60 * 1000; // 10 minutes timeout
+              const intervalMs = 10 * 1000;      // 10 seconds interval
+              const startTime = Date.now();
+              let finalConclusion = null;
+
+              while (Date.now() - startTime < maxWaitMs) {
+                try {
+                  const checkRuns = await github.rest.checks.listForRef({
+                    owner,
+                    repo,
+                    ref: sha
+                  });
+
+                  // Strictly filter check runs matching ALL identity requirements
+                  const validChecks = checkRuns.data.check_runs.filter(cr => {
+                    const isShaMatch = cr.head_sha === sha;
+                    const isNameMatch = cr.name === expectedCheckName;
+                    const isAppMatch = cr.app && (
+                      cr.app.slug === 'cloudflare-workers-and-pages' ||
+                      cr.app.name === 'Cloudflare Workers and Pages' ||
+                      cr.app.id === 85455
+                    );
+                    return isShaMatch && isNameMatch && isAppMatch;
+                  });
+
+                  if (validChecks.length > 0) {
+                    // Sort descending by ID: highest check run ID is the newest run
+                    validChecks.sort((a, b) => b.id - a.id);
+                    const latestCheck = validChecks[0];
+                    console.log(`Cloudflare check #${latestCheck.id} "${latestCheck.name}": status=${latestCheck.status}, conclusion=${latestCheck.conclusion}`);
+
+                    if (latestCheck.status === 'completed') {
+                      finalConclusion = latestCheck.conclusion;
+                      break;
+                    }
+                  } else {
+                    console.log('Waiting for Cloudflare check run to appear on commit...');
+                  }
+                } catch (pollErr) {
+                  console.warn('Transient error reading checks API, will retry:', pollErr.message);
+                }
+
+                await new Promise(r => setTimeout(r, intervalMs));
+              }
+
+              // 3. Finalize Deployment Status based on Cloudflare conclusion
+              if (finalConclusion === 'success') {
+                console.log('Cloudflare Workers deployment succeeded! Marking GitHub Deployment as success.');
+                await github.rest.repos.createDeploymentStatus({
+                  owner,
+                  repo,
+                  deployment_id: deploymentId,
+                  state: 'success',
+                  description: 'Deployed successfully to Cloudflare Workers',
+                  environment_url: environmentUrl
+                });
+              } else if (finalConclusion) {
+                console.log(`Cloudflare Workers deployment finished with non-success conclusion: ${finalConclusion}`);
+                await github.rest.repos.createDeploymentStatus({
+                  owner,
+                  repo,
+                  deployment_id: deploymentId,
+                  state: 'failure',
+                  description: `Cloudflare Workers build finished with status: ${finalConclusion}`
+                });
+                core.setFailed(`Cloudflare build failed with status: ${finalConclusion}`);
+              } else {
+                console.log('Timed out waiting for Cloudflare Workers check run to complete.');
+                await github.rest.repos.createDeploymentStatus({
+                  owner,
+                  repo,
+                  deployment_id: deploymentId,
+                  state: 'error',
+                  description: 'Timed out waiting for Cloudflare Workers deployment'
+                });
+                core.setFailed('Timed out waiting for Cloudflare Workers deployment');
+              }
+
+            } catch (err) {
+              console.error('Fatal error in deployment sync workflow:', err);
+              if (deploymentId) {
+                try {
+                  await github.rest.repos.createDeploymentStatus({
+                    owner,
+                    repo,
+                    deployment_id: deploymentId,
+                    state: 'error',
+                    description: `Synchronization error: ${err.message}`
+                  });
+                } catch (statusErr) {
+                  console.error('Failed to set error status on deployment:', statusErr.message);
+                }
+              }
+              core.setFailed(err.message);
+            }
