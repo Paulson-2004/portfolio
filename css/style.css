@@ -90,9 +90,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .portrait-caption strong{color:var(--ink);font-weight:600}
 
 /* ---------- sections ---------- */
-.section{padding:104px 0}
+.section{padding:80px 0}
 .section-muted{background:var(--paper-alt)}
-.section-heading{max-width:640px;margin-bottom:50px}
+.section-heading{max-width:640px;margin-bottom:34px}
 .section-heading h2{font-size:clamp(1.9rem,3.4vw,2.65rem);margin-bottom:0}
 .section-heading>p:not(.eyebrow){color:var(--muted);margin-top:14px;margin-bottom:0}
 .split-heading{max-width:none;display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:end}
@@ -101,21 +101,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 /* ---------- experience (quiet chronology, not a decorative timeline) ---------- */
 .timeline{position:relative;max-width:none}
 .timeline-item{position:relative;display:grid;grid-template-columns:200px 20px 1fr;column-gap:28px}
-.timeline-item:not(:last-child){border-bottom:1px solid var(--line);padding-bottom:30px;margin-bottom:30px}
+.timeline-item:not(:last-child){border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:20px}
 .timeline-card{display:contents}
 .timeline-icon{position:relative;display:flex;justify-content:center;padding-top:9px;grid-column:2;grid-row:1/3}
 .timeline-icon::before{content:"";width:7px;height:7px;border-radius:1px;background:var(--accent)}
-.timeline-icon::after{content:"";position:absolute;top:22px;bottom:-30px;width:1px;background:var(--line)}
+.timeline-icon::after{content:"";position:absolute;top:22px;bottom:-20px;width:1px;background:var(--line)}
 .timeline-item:last-child .timeline-icon::after{display:none}
 .timeline-icon i{display:none}
 .item-meta{grid-column:1;grid-row:1;padding-top:2px;color:var(--muted);font:600 .72rem var(--mono);text-transform:uppercase;letter-spacing:.04em}
 .item-meta span{color:var(--line-strong);padding:0 .3em}
-.timeline-card h3{grid-column:3;grid-row:1;font-size:1.2rem;margin-bottom:10px;font-weight:600}
-.timeline-card h3 span{display:block;margin-top:3px;color:var(--muted);font:500 .88rem var(--sans);letter-spacing:0}
+.timeline-card h3{grid-column:3;grid-row:1;font-size:1.2rem;margin-bottom:6px;font-weight:600}
+.timeline-card h3 span{display:block;margin-top:2px;color:var(--muted);font:500 .88rem var(--sans);letter-spacing:0}
 .timeline-card p{grid-column:3;margin:0;color:var(--muted);font-size:.93rem;max-width:62ch}
 
 /* ---------- projects: featured + supporting rhythm ---------- */
-.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:stretch}
 .project-card{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .2s,box-shadow .2s}
 .project-card:hover{border-color:var(--line-strong);box-shadow:0 10px 26px rgba(21,23,27,.06)}
 .project-image{position:relative;display:block;overflow:hidden;aspect-ratio:1.53;background:var(--paper-alt)}
@@ -123,12 +123,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .project-card:hover .project-image img{transform:scale(1.02)}
 .image-overlay{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:32px;height:32px;border-radius:var(--radius);background:rgba(21,23,27,.86);color:#fff;opacity:0;transition:opacity .2s}
 .project-card:hover .image-overlay,.project-card:focus-within .image-overlay{opacity:1}
-.project-body{padding:24px;display:flex;flex:1;flex-direction:column}
+.project-body{padding:20px 22px;display:flex;flex:1;flex-direction:column}
 .project-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.project-top h3{font-size:1.15rem;margin-bottom:10px;font-weight:600}
+.project-top h3{font-size:1.15rem;margin-bottom:8px;font-weight:600}
 .project-type{flex:none;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:3px 9px;font:600 .66rem var(--mono);text-transform:uppercase;letter-spacing:.03em}
 .project-body p{color:var(--muted);font-size:.88rem}
-.badges{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 14px}
 .badges span{padding:4px 9px;border:1px solid var(--line);border-radius:3px;color:var(--ink-soft);font:600 .68rem var(--mono)}
 .text-link{display:inline-block;margin-top:auto;color:var(--accent);padding-top:4px}
 .text-link i{margin-left:5px;color:var(--accent)}
@@ -136,7 +136,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 /* Featured project: first card gets the full-width, side-by-side treatment */
 .project-grid>.project-card:first-child{grid-column:1/-1;flex-direction:row}
 .project-grid>.project-card:first-child .project-image{flex:1 1 52%;aspect-ratio:auto}
-.project-grid>.project-card:first-child .project-body{flex:1 1 48%;padding:34px 36px;justify-content:center}
+.project-grid>.project-card:first-child .project-body{flex:1 1 48%;padding:24px 28px;justify-content:center}
 .project-grid>.project-card:first-child .project-top h3{font-size:1.5rem;font-family:var(--serif)}
 .project-grid>.project-card:first-child .project-body p{font-size:.96rem}
 
@@ -190,12 +190,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .certificate-lightbox-close{position:absolute;top:-14px;right:-14px;z-index:2;width:34px;height:34px;border:1px solid var(--line-strong);border-radius:50%;background:#fff;color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer}
 
 /* ---------- recent updates: compact changelog ---------- */
-.section-updates{padding:72px 0 64px}
-.section-updates .section-heading{margin-bottom:32px}
+.section-updates{padding:60px 0 54px}
+.section-updates .section-heading{margin-bottom:24px}
 .updates-list{list-style:none;padding:0;margin:0;max-width:760px;border-top:1px solid var(--line)}
-.update-item{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.update-item{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line)}
 .update-date{font:600 .74rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .update-desc{margin:0;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
+.updates-controls{margin-top:1.25rem;text-align:center}
 
 /* ---------- contact: flat, confident close ---------- */
 .contact-section{padding:96px 0;background:var(--ink);color:#fff}
@@ -245,6 +246,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .reveal.is-visible{opacity:1;transform:none}
 .delay-1{transition-delay:.08s}
 .delay-2{transition-delay:.16s}
+.delay-3{transition-delay:.24s}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -266,7 +268,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-copy{order:1}
   .hero-portrait{order:2;justify-self:start;max-width:316px;margin-top:0}
-  .section{padding:72px 0}
+  .section{padding:56px 0}
   .split-heading,.contact-grid{grid-template-columns:1fr;gap:22px}
   .split-heading>p:not(.eyebrow){justify-self:start}
   .project-grid{grid-template-columns:1fr 1fr}
@@ -300,10 +302,26 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
   .modal-copy h2{font-size:1.5rem}
   .certificate-lightbox{padding:16px}
   .certificate-lightbox-content{padding:9px}
-  .section-updates{padding:54px 0 48px}
-  .update-item{grid-template-columns:1fr;gap:4px;padding:13px 0}
+  .section-updates{padding:46px 0 40px}
+  .update-item{grid-template-columns:1fr;gap:4px;padding:11px 0}
 }
 @media(max-width:400px){
   .hero-actions .button{width:100%}
   .hero-links{justify-content:flex-start}
+}
+
+.updates-list .update-item:nth-child(n+5) {
+  display: none;
+}
+.updates-list.is-expanded .update-item:nth-child(n+5) {
+  display: flex;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .updates-list.is-expanded .update-item:nth-child(n+5) {
+    animation: fade-in-down 0.4s ease forwards;
+  }
+}
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

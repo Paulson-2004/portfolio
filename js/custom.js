@@ -254,6 +254,21 @@
       }
     });
 
+    const updatesToggle = document.getElementById('updates-toggle');
+    const updatesList = document.getElementById('updates-list');
+    if (updatesToggle && updatesList) {
+      const updateItems = updatesList.querySelectorAll('.update-item');
+      if (updateItems.length <= 4) {
+        updatesToggle.parentElement.style.display = 'none';
+      } else {
+        updatesToggle.addEventListener('click', function() {
+          const isExpanded = updatesList.classList.toggle('is-expanded');
+          this.setAttribute('aria-expanded', isExpanded);
+          this.innerHTML = isExpanded ? 'Show fewer <i class="fa fa-angle-up"></i>' : 'View all updates <i class="fa fa-angle-down"></i>';
+        });
+      }
+    }
+
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
