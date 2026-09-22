@@ -9,14 +9,14 @@ A fast, responsive portfolio for **Paulson J**, a Java Full Stack Developer and 
 - Project cards with one visual per project and detail modals
 - Experience timeline, skill categories, education cards, and certification links
 - SEO metadata, Open Graph/Twitter tags, structured data, `robots.txt`, and sitemap
-- Static GitHub Pages deployment with no build step
+- Static Cloudflare Pages deployment with no build step
 
 ## Tech stack
 
 - HTML5 and CSS3 (custom design system)
 - Bootstrap 4 and jQuery for navigation collapse and project modals
 - Font Awesome
-- GitHub Actions and GitHub Pages
+- Cloudflare Pages
 
 ## Run locally
 
@@ -43,13 +43,12 @@ Open the URL shown by the server, such as `http://localhost:3000` or `http://loc
 ├── js/custom.js               # Navigation and entrance animations
 ├── img/                       # Portrait and project visuals
 ├── robots.txt                 # Search-engine crawl rules
-├── sitemap.xml                # Canonical page sitemap
-└── .github/workflows/         # GitHub Pages deployment workflow
+└── sitemap.xml                # Canonical page sitemap
 ```
 
 ## Deployment
 
-The included GitHub Actions workflow deploys to GitHub Pages when changes are pushed to `main`. In the repository settings, set **Pages** to use **GitHub Actions**. The expected public URL is `https://paulson-2004.github.io/portfolio/`.
+The portfolio is deployed on Cloudflare Pages. The live production URL is `https://portfolio.jpaulson2004.workers.dev/`.
 
 ## License
 
