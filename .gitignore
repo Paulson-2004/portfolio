@@ -24,17 +24,6 @@ coverage/
 *.pem
 *.key
 
-# AI coding agents and local context
-AGENTS.md
-CLAUDE.md
-GEMINI.md
-CODEX.md
-ANTIGRAVITY.md
-.claude/
-.gemini/
-.antigravity/
-.codex/
-
 # Python artifacts and virtual environments
 __pycache__/
 *.py[cod]
