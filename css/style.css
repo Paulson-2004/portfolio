@@ -198,7 +198,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .update-item{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line)}
 .update-date{font-family:var(--mono);font-size:.74rem;font-weight:600;line-height:1.5;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .update-desc{margin:0;color:var(--ink-soft);font-size:.95rem;line-height:1.55}
-.updates-controls{margin-top:1.25rem;text-align:center}
 
 /* ---------- contact: flat, confident close ---------- */
 .contact-section{padding:96px 0;background:var(--ink);color:#fff}
@@ -312,19 +311,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
   .hero-links{justify-content:flex-start}
 }
 
-.project-grid .project-card:nth-child(n+4),
-.updates-list .update-item:nth-child(n+5) {
+.project-grid .project-card:nth-child(n+4) {
   display: none;
 }
 .project-grid.is-expanded .project-card:nth-child(n+4) {
   display: flex;
 }
-.updates-list.is-expanded .update-item:nth-child(n+5) {
-  display: grid;
-}
 @media (prefers-reduced-motion: no-preference) {
-  .project-grid.is-expanded .project-card:nth-child(n+4),
-  .updates-list.is-expanded .update-item:nth-child(n+5) {
+  .project-grid.is-expanded .project-card:nth-child(n+4) {
     animation: fade-in-down 0.4s ease forwards;
   }
 }
