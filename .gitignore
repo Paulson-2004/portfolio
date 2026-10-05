@@ -37,3 +37,14 @@ venv/
 test_*.py
 test_*.js
 *.log
+
+# AI coding agents and local context
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+CODEX.md
+ANTIGRAVITY.md
+.claude/
+.gemini/
+.antigravity/
+.codex/

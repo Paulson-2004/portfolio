@@ -130,6 +130,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .project-body p{color:var(--muted);font-size:.88rem}
 .badges{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 14px}
 .badges span{padding:4px 9px;border:1px solid var(--line);border-radius:3px;color:var(--ink-soft);font:600 .68rem var(--mono)}
+.project-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto}
 .text-link{display:inline-block;margin-top:auto;color:var(--accent);padding-top:4px}
 .text-link i{margin-left:5px;color:var(--accent)}
 
@@ -139,6 +140,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
 .project-grid>.project-card:first-child .project-body{flex:1 1 48%;padding:24px 28px;justify-content:center}
 .project-grid>.project-card:first-child .project-top h3{font-size:1.5rem;font-family:var(--serif)}
 .project-grid>.project-card:first-child .project-body p{font-size:.96rem}
+.projects-controls{margin-top:2rem;text-align:center}
 
 /* ---------- skills: editorial rows, not an icon grid ---------- */
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;row-gap:0;max-width:none}
@@ -310,13 +312,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-hei
   .hero-links{justify-content:flex-start}
 }
 
+.project-grid .project-card:nth-child(n+4),
 .updates-list .update-item:nth-child(n+5) {
   display: none;
 }
+.project-grid.is-expanded .project-card:nth-child(n+4),
 .updates-list.is-expanded .update-item:nth-child(n+5) {
   display: flex;
 }
 @media (prefers-reduced-motion: no-preference) {
+  .project-grid.is-expanded .project-card:nth-child(n+4),
   .updates-list.is-expanded .update-item:nth-child(n+5) {
     animation: fade-in-down 0.4s ease forwards;
   }

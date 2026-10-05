@@ -254,6 +254,24 @@
       }
     });
 
+    const projectsToggle = document.getElementById('projects-toggle');
+    const projectGrid = document.getElementById('project-grid');
+    if (projectsToggle && projectGrid) {
+      const projectCards = projectGrid.querySelectorAll('.project-card');
+      if (projectCards.length <= 3) {
+        projectsToggle.parentElement.style.display = 'none';
+      } else {
+        projectsToggle.addEventListener('click', function() {
+          const isExpanded = projectGrid.classList.toggle('is-expanded');
+          this.setAttribute('aria-expanded', isExpanded);
+          this.innerHTML = isExpanded ? 'Show fewer projects <i class="fa fa-angle-up"></i>' : 'View all projects <i class="fa fa-angle-down"></i>';
+          if (isExpanded) {
+            projectCards.forEach((card) => card.classList.add('is-visible'));
+          }
+        });
+      }
+    }
+
     const updatesToggle = document.getElementById('updates-toggle');
     const updatesList = document.getElementById('updates-list');
     if (updatesToggle && updatesList) {
