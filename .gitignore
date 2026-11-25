@@ -48,3 +48,6 @@ ANTIGRAVITY.md
 .gemini/
 .antigravity/
 .codex/
+
+# Local planning documentation
+docs/planning/
