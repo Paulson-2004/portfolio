@@ -2,8 +2,11 @@ name: Sync Reactive Resume
 
 on:
   schedule:
-    # Poll every 15 minutes (~4 metadata requests/hr, well within Reactive Resume API limits).
+    # Primary: poll every 15 minutes (~4 metadata requests/hr, well within Reactive Resume API limits).
+    # Secondary: offset by 8 minutes — belt-and-suspenders in case GitHub suppresses one slot.
+    # GitHub's cron scheduler is best-effort; two staggered expressions improve reliability.
     - cron: '*/15 * * * *'
+    - cron: '8-53/15 * * * *'
   workflow_dispatch:
     inputs:
       force:
