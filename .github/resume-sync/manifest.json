@@ -5,15 +5,15 @@
     "resumeId": "01a212bc-0b8d-72a3-aa40-dd750c244798",
     "resumeName": "Paulson J - Portfolio Proposed (2026)",
     "updatedAt": "2026-11-25T13:57:23.683Z",
-    "contentHash": "sha256:a9c471ef4faeb62c90d2bc8da9fabbc0f63b2af461f3459835c1bad49e43a3f1",
+    "contentHash": "sha256:f982531ab31036562ab8f7c8134b9e007bee51f7db2e2be7a6fdcd295c16c1a2",
     "isPublic": false
   },
   "sync": {
     "revision": "2026-11-25T13:57:23.683Z#39e2be523693",
     "shortVersion": "20261125-39e2be",
-    "lastSuccessfulSyncAt": "2026-11-25T13:57:02.167Z",
-    "exportTimestamp": "2026-11-25T13:57:02.167Z",
-    "trigger": "mcp-authoritative-baseline"
+    "lastSuccessfulSyncAt": "2026-11-25T14:11:43.545Z",
+    "exportTimestamp": "2026-11-25T14:11:43.545Z",
+    "trigger": "workflow_dispatch"
   },
   "artifacts": {
     "pdf": {
