@@ -3,16 +3,16 @@
   "source": {
     "provider": "reactive-resume",
     "resumeId": "01a212bc-0b8d-72a3-aa40-dd750c244798",
-    "resumeName": "Paulson J - Portfolio Proposed (2026)",
-    "updatedAt": "2026-11-25T13:57:23.683Z",
-    "contentHash": "sha256:f982531ab31036562ab8f7c8134b9e007bee51f7db2e2be7a6fdcd295c16c1a2",
+    "resumeName": "Paulson J - Master Resume",
+    "updatedAt": "2026-11-25T14:25:56.716Z",
+    "contentHash": "sha256:3312941c3c27f3a7a7c363800b9eaeb703c4f7980b984e91e5107de88b443825",
     "isPublic": false
   },
   "sync": {
-    "revision": "2026-11-25T13:57:23.683Z#39e2be523693",
+    "revision": "2026-11-25T14:25:56.716Z#39e2be523693",
     "shortVersion": "20261125-39e2be",
-    "lastSuccessfulSyncAt": "2026-11-25T14:11:43.545Z",
-    "exportTimestamp": "2026-11-25T14:11:43.545Z",
+    "lastSuccessfulSyncAt": "2026-11-25T14:27:21.281Z",
+    "exportTimestamp": "2026-11-25T14:27:21.281Z",
     "trigger": "workflow_dispatch"
   },
   "artifacts": {
