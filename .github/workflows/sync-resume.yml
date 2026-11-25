@@ -166,17 +166,21 @@ jobs:
           script: |
             const { owner, repo } = context.repo;
             const sha = process.env.PUSHED_SHA;
-            await new Promise((r) => setTimeout(r, 12000));
-            const checks = await github.rest.checks.listForRef({ owner, repo, ref: sha });
-            const cfCheck = checks.data.check_runs.find((c) => c.name === 'Workers Builds: portfolio');
+            let cfCheck = null;
+            for (let attempt = 1; attempt <= 6; attempt += 1) {
+              await new Promise((r) => setTimeout(r, 10000));
+              const checks = await github.rest.checks.listForRef({ owner, repo, ref: sha });
+              cfCheck = checks.data.check_runs.find((c) => c.name === 'Workers Builds: portfolio') || null;
+              if (cfCheck && cfCheck.status === 'completed') break;
+            }
             if (cfCheck) {
               core.notice(`Cloudflare Workers Builds detected on ${sha.slice(0, 7)}: status=${cfCheck.status}, conclusion=${cfCheck.conclusion}`);
             } else if (process.env.USING_PUSH_PAT === 'true' || process.env.HAS_DEPLOY_HOOK === 'true') {
               core.notice(`Commit ${sha.slice(0, 7)} pushed with PAT or Deploy Hook; Cloudflare Workers build queued.`);
             } else {
               core.warning(
-                `Commit ${sha.slice(0, 7)} pushed using GITHUB_TOKEN without PORTFOLIO_PUSH_TOKEN or CLOUDFLARE_DEPLOY_HOOK_URL. ` +
-                'Verify Cloudflare Workers Builds picked up the commit, or configure one of those optional secrets.'
+                `Cloudflare Workers Builds check did not appear within 60s for ${sha.slice(0, 7)}. ` +
+                'Verify Cloudflare Workers Builds GitHub App integration or add CLOUDFLARE_DEPLOY_HOOK_URL.'
               );
             }
 
