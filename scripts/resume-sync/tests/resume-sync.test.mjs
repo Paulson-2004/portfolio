@@ -25,9 +25,7 @@ import {
 
 const THIS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REAL_REPO_ROOT = path.resolve(THIS_DIR, '..', '..', '..');
-const FIXTURE_PDF_PATH = fs.existsSync(path.join(REAL_REPO_ROOT, 'docs/drafts/Paulson_J_Resume_PROPOSED.pdf'))
-  ? path.join(REAL_REPO_ROOT, 'docs/drafts/Paulson_J_Resume_PROPOSED.pdf')
-  : path.join(REAL_REPO_ROOT, 'docs/Paulson_J_Resume.pdf');
+const FIXTURE_PDF_PATH = path.join(REAL_REPO_ROOT, 'docs/Paulson_J_Resume.pdf');
 
 function cloneSandboxRepo() {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'resume-sync-sandbox-'));

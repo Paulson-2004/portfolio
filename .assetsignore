@@ -27,7 +27,5 @@ LICENSE
 wrangler.jsonc
 wrangler.toml
 
-# Internal planning and unapproved drafts (public resume remains live at /docs/Paulson_J_Resume.pdf)
+# Internal planning files (single active resume remains live at /docs/Paulson_J_Resume.pdf)
 docs/planning/
-docs/drafts/
-img/resume-preview-proposed.webp
