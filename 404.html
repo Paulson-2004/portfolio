@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#fafafa">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon.ico" sizes="any">
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-italic-latin.woff2" crossorigin>
+  <script>
+    (function () {
+      var key = 'portfolio_theme_v1';
+      var mode = 'system';
+      try {
+        var saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark' || saved === 'system') mode = saved;
+      } catch (e) {}
+      var prefersDark = false;
+      try {
+        prefersDark = !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      } catch (e) {}
+      var resolved = mode === 'system' ? (prefersDark ? 'dark' : 'light') : mode;
+      var root = document.documentElement;
+      root.dataset.theme = resolved;
+      root.dataset.themeMode = mode;
+      root.style.colorScheme = resolved;
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', resolved === 'dark' ? '#12151a' : '#fafafa');
+    }());
+  </script>
+  <link href="/css/style.css?v=20261125-8" rel="stylesheet">
+  <title>Page Not Found (404) | Paulson J</title>
+</head>
+<body class="error-page">
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" width="0" height="0" hidden aria-hidden="true">
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+    </symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="nav-inner">
+        <a class="navbar-brand" href="/">
+          <span class="brand-mark" aria-hidden="true">PJ</span>
+          <span>Paulson J</span><span class="sr-only">, home</span>
+        </a>
+        <div class="nav-controls">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Color theme: System. Switch to Light.">
+            <svg class="icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+            <svg class="icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+            <svg class="icon theme-icon-system" aria-hidden="true"><use href="#icon-monitor"/></svg>
+            <span class="theme-toggle-label">System</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="error-shell">
+    <div class="container">
+      <article class="error-card">
+        <p class="eyebrow">404 · Page Not Found</p>
+        <h1>This page isn’t in the portfolio.</h1>
+        <p class="error-lead">The URL you requested may have moved, been renamed, or doesn’t exist on <strong>paulsonj.me</strong>.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/">
+            Back to Home
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+          </a>
+          <a class="button button-secondary" href="/#projects">View Projects</a>
+          <a class="button button-secondary" href="/#contact">Contact Paulson</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <script src="/js/custom.js?v=20261125-8" defer></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Source control, CI, editor, and local agent files
+.git/
+.github/
+.vscode/
+.claude/
+.gemini/
+.antigravity/
+.codex/
+.playwright-mcp/
+
+# Documentation, agent specs, and planning files
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+CODEX.md
+ANTIGRAVITY.md
+README.md
+LICENSE
+*.md
+
+# Cloudflare deployment metadata (parsed at build time; not served publicly)
+wrangler.jsonc
+wrangler.toml
+
+# Internal planning and unapproved drafts (public resume remains live at /docs/Paulson_J_Resume.pdf)
+docs/planning/
+docs/drafts/
+img/resume-preview-proposed.webp

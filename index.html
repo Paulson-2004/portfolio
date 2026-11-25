@@ -12,17 +12,21 @@
   <meta property="og:url" content="https://paulsonj.me/">
   <meta property="og:title" content="Paulson J | Java Full Stack Developer &amp; Software Developer">
   <meta property="og:description" content="Java Full Stack Developer and Software Developer building dependable full-stack web, backend, and mobile applications.">
-  <meta property="og:image" content="https://paulsonj.me/img/profile.png">
+  <meta property="og:image" content="https://paulsonj.me/img/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Paulson J — Java Full Stack Developer and Software Developer in Dharapuram, Tamil Nadu, India">
   <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Paulson J | Java Full Stack Developer &amp; Software Developer">
   <meta name="twitter:description" content="Java Full Stack Developer and Software Developer building dependable full-stack web, backend, and mobile applications.">
-  <meta name="twitter:image" content="https://paulsonj.me/img/profile.png">
+  <meta name="twitter:image" content="https://paulsonj.me/img/og-card.png">
+  <meta name="twitter:image:alt" content="Paulson J — Java Full Stack Developer and Software Developer">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="img/favicon.ico" sizes="any">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/fraunces-italic-latin.woff2" crossorigin>
   <script>
     (function () {
       var key = 'portfolio_theme_v1';
@@ -44,12 +48,10 @@
       if (meta) meta.setAttribute('content', resolved === 'dark' ? '#12151a' : '#fafafa');
     }());
   </script>
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.css?v=20261125-8" rel="stylesheet">
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap">
     <style>.reveal{opacity:1!important;transform:none!important}.project-grid .project-card:nth-child(n+4){display:flex!important}.projects-controls{display:none!important}</style>
   </noscript>
-  <link rel="preload" as="image" href="img/profile.webp" imagesrcset="img/profile-sm.webp 600w, img/profile.webp 900w" imagesizes="(max-width: 991px) 316px, 430px" type="image/webp">
   <title>Paulson J | Java Full Stack Developer &amp; Software Developer</title>
   <script type="application/ld+json">
   {
@@ -57,21 +59,64 @@
     "@type": "Person",
     "name": "Paulson J",
     "url": "https://paulsonj.me/",
-    "image": "https://paulsonj.me/img/profile.png",
+    "mainEntityOfPage": "https://paulsonj.me/",
+    "image": "https://paulsonj.me/img/og-card.png",
     "jobTitle": "Java Full Stack Developer | Software Developer",
     "email": "mailto:jpaulson2004@gmail.com",
-    "telephone": "+91-9360958479",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Dharapuram",
       "addressRegion": "Tamil Nadu",
       "addressCountry": "IN"
     },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Mount Zion College of Engineering and Technology",
+        "parentOrganization": {
+          "@type": "CollegeOrUniversity",
+          "name": "Anna University"
+        }
+      }
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "GitHub Foundations",
+        "recognizedBy": { "@type": "Organization", "name": "DataCamp" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Getting Started with Full Stack Java Development",
+        "recognizedBy": { "@type": "Organization", "name": "Simplilearn SkillUp" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Object Oriented Programming in Java",
+        "recognizedBy": { "@type": "Organization", "name": "IBM · Coursera" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Java Programming for Beginners",
+        "recognizedBy": { "@type": "Organization", "name": "IBM · Coursera" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Artificial Intelligence IBM SkillsBuild",
+        "recognizedBy": { "@type": "Organization", "name": "ICT Academy" }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "MongoDB Basics for Students",
+        "recognizedBy": { "@type": "Organization", "name": "MongoDB" }
+      }
+    ],
     "knowsAbout": [
       "Java",
       "TypeScript",
       "JavaScript",
       "Python",
+      "Dart",
       "React",
       "Next.js",
       "NestJS",
@@ -155,6 +200,12 @@
     <symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>
     </symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6"/>
+    </symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </symbol>
   </svg>
 
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -162,9 +213,9 @@
   <header class="site-header" id="top">
     <nav class="site-nav" aria-label="Primary navigation">
       <div class="nav-inner">
-        <a class="navbar-brand" href="#top" aria-label="Paulson J home">
-          <span class="brand-mark">PJ</span>
-          <span>Paulson J</span>
+        <a class="navbar-brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">PJ</span>
+          <span>Paulson J</span><span class="sr-only">, home</span>
         </a>
         <div class="nav-drawer" id="primary-nav">
           <ul class="navbar-nav">
@@ -193,6 +244,7 @@
       <div class="nav-progress" aria-hidden="true"></div>
     </nav>
   </header>
+  <div class="nav-backdrop" id="nav-backdrop" hidden></div>
 
   <main id="main-content">
     <section class="hero" id="about" aria-labelledby="hero-title">
@@ -201,15 +253,15 @@
           <p class="eyebrow hero-stagger"><span></span> Available for opportunities</p>
           <h1 id="hero-title" class="hero-stagger">Hi, I’m <em>Paulson J.</em></h1>
           <p class="hero-role hero-stagger">Java Full Stack Developer <span>·</span> Software Developer</p>
-          <p class="hero-summary hero-stagger">B.E. Computer Science and Engineering graduate with hands-on experience building production web, backend, and mobile applications across Java, TypeScript, Next.js, NestJS, PostgreSQL, and REST APIs.</p>
+          <p class="hero-summary hero-stagger">B.E. Computer Science and Engineering graduate grounded in Java, OOP, DSA, and relational database design, with hands-on experience building full-stack web, backend, and mobile applications across TypeScript, Next.js, NestJS, React, Node.js, PostgreSQL, MySQL, MongoDB, and Python.</p>
           <div class="hero-actions hero-stagger">
             <a class="button button-primary" href="#projects">
               View projects
               <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
             </a>
-            <button type="button" class="button button-secondary" data-dialog-open="resumeModal" aria-label="View Paulson J's resume">
+            <button type="button" class="button button-secondary" data-dialog-open="resumeModal">
               <svg class="icon" aria-hidden="true"><use href="#icon-file-text"/></svg>
-              View résumé
+              View résumé<span class="sr-only"> of Paulson J</span>
             </button>
           </div>
           <div class="hero-links hero-stagger">
@@ -221,16 +273,16 @@
               <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
               LinkedIn
             </a>
-            <a href="https://github.com/Paulson-2004/portfolio" target="_blank" rel="noopener noreferrer" aria-label="View portfolio source code on GitHub">
+            <a href="https://github.com/Paulson-2004/portfolio" target="_blank" rel="noopener noreferrer">
               <svg class="icon" aria-hidden="true"><use href="#icon-code"/></svg>
-              View source
+              View source<span class="sr-only"> code on GitHub</span>
             </a>
           </div>
         </div>
         <div class="hero-portrait">
           <div class="portrait-frame">
             <picture>
-              <source srcset="img/profile-sm.webp 600w, img/profile.webp 900w" sizes="(max-width: 991px) 316px, 430px" type="image/webp">
+              <source srcset="img/profile-sm.webp 600w, img/profile.webp 900w" sizes="(max-width: 767px) 248px, (max-width: 991px) 296px, 376px" width="600" height="667" type="image/webp">
               <img src="img/profile.png" alt="Paulson J, Java Full Stack Developer" width="900" height="1000" fetchpriority="high" decoding="async">
             </picture>
           </div>
@@ -250,9 +302,29 @@
           <article class="timeline-item reveal">
             <div class="timeline-card">
               <span class="timeline-dot" aria-hidden="true"></span>
-              <div class="item-meta">Jul 2026 – Present <span>·</span> Gurugram, India — Remote</div>
-              <h3>Fullstack Web Development <span>Unified Mentor Private Limited</span></h3>
-              <p>Developed and enhanced full-stack features for the ReWear marketplace.</p>
+              <div class="item-meta">Jul 2026 – Oct 2026 <span>·</span> Gurugram, India — Remote</div>
+              <h3>Full-Stack Web Development Intern <span>Unified Mentor Private Limited</span></h3>
+              <p>Built FinGrow (React, Node.js, Express.js, PostgreSQL) and enhanced ReWear (React, Node.js, Express.js, MongoDB), implementing authentication, workflows, dashboards, and role-based admin features.</p>
+              <div class="timeline-links">
+                <button type="button" class="text-link text-link-button" data-dialog-open="modal-fingrow">
+                  View FinGrow case study
+                  <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+                </button>
+                <button type="button" class="text-link text-link-button" data-dialog-open="modal-rewear">
+                  View ReWear case study
+                  <svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+                </button>
+              </div>
+              <details class="timeline-details">
+                <summary>
+                  Key engineering deliverables
+                  <svg class="icon toggle-chevron" aria-hidden="true"><use href="#icon-angle-down"/></svg>
+                </summary>
+                <ul class="timeline-deliverables">
+                  <li><strong>FinGrow:</strong> Three-ledger Node.js / Express 5 REST API over raw parameterized PostgreSQL (<code>pg</code>), Zod validation, RBAC admin endpoints, and 474 automated Vitest / Supertest / RTL tests.</li>
+                  <li><strong>ReWear:</strong> HttpOnly JWT cookie authentication, Mongoose schemas for multi-user swap requests, Multer/Cloudinary uploads, polling swap chat, and admin moderation panel.</li>
+                </ul>
+              </details>
             </div>
           </article>
           <article class="timeline-item reveal">
@@ -261,6 +333,16 @@
               <div class="item-meta">Feb 2026 – Apr 2026 <span>·</span> Puducherry, India — On-Site</div>
               <h3>App Developer Intern <span>Capri Nexus Private Limited</span></h3>
               <p>Built a Flutter grocery-shopping application with authentication, product management, cart, and order-processing flows. Strengthened the product through UI development, testing, debugging, and optimization using Dart, MySQL, and Git.</p>
+              <details class="timeline-details">
+                <summary>
+                  Key engineering deliverables
+                  <svg class="icon toggle-chevron" aria-hidden="true"><use href="#icon-angle-down"/></svg>
+                </summary>
+                <ul class="timeline-deliverables">
+                  <li>Implemented end-to-end authentication, product catalog browsing, cart state sync, and checkout/order tracking workflows in Flutter &amp; Dart backed by MySQL.</li>
+                  <li>Profiled UI responsiveness across mobile screen sizes and coordinated feature testing and debugging milestones via Git.</li>
+                </ul>
+              </details>
             </div>
           </article>
           <article class="timeline-item reveal">
@@ -269,6 +351,15 @@
               <div class="item-meta">Jun 2025 – Jul 2025 <span>·</span> Chennai, Tamil Nadu, India — Remote</div>
               <h3>Web Development Intern <span>ZedIndex</span></h3>
               <p>Developed a book-review platform using Next.js and Tailwind CSS, improving UI responsiveness and user engagement.</p>
+              <details class="timeline-details">
+                <summary>
+                  Key engineering deliverables
+                  <svg class="icon toggle-chevron" aria-hidden="true"><use href="#icon-angle-down"/></svg>
+                </summary>
+                <ul class="timeline-deliverables">
+                  <li>Implemented responsive page layouts and reader review flows using Next.js and Tailwind CSS, fixing spacing and interaction bottlenecks on mobile and tablet widths.</li>
+                </ul>
+              </details>
             </div>
           </article>
           <article class="timeline-item reveal">
@@ -301,10 +392,19 @@
           <p>Production platforms, backend architectures, and applied full-stack systems.</p>
         </div>
 
+        <div class="filter-bar project-filters reveal" role="group" aria-label="Filter projects by domain">
+          <button type="button" class="filter-pill" data-project-filter="all" aria-pressed="true">All (6)</button>
+          <button type="button" class="filter-pill" data-project-filter="fullstack" aria-pressed="false">Full-Stack</button>
+          <button type="button" class="filter-pill" data-project-filter="backend" aria-pressed="false">Backend &amp; APIs</button>
+          <button type="button" class="filter-pill" data-project-filter="ai" aria-pressed="false">AI &amp; Privacy</button>
+          <button type="button" class="filter-pill" data-project-filter="mobile" aria-pressed="false">Mobile</button>
+          <span class="filter-status" id="project-filter-status" aria-live="polite">Showing top 3 of 6 projects</span>
+        </div>
+
         <div class="project-grid" id="project-grid">
-          <article class="project-card is-featured reveal">
+          <article class="project-card is-featured reveal" data-category="fullstack backend" data-skills="nextjs typescript nestjs postgresql prisma tailwind react nodejs">
             <button type="button" class="project-image" data-dialog-open="modal-chapterwhen" aria-label="Open ChapterWhen architecture and case study">
-              <img src="img/projects/chapterwhen/chapterwhen-home.webp" alt="ChapterWhen Web Novels and Light Novels live platform interface" width="1440" height="900" loading="lazy" decoding="async">
+              <img class="media-light-surface" src="img/projects/chapterwhen/chapterwhen-home.webp" srcset="img/projects/chapterwhen/chapterwhen-home-sm.webp 640w, img/projects/chapterwhen/chapterwhen-home.webp 1440w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 991px) 720px, 545px" alt="ChapterWhen Web Novels and Light Novels live platform interface" width="1440" height="900" loading="lazy" decoding="async">
               <span class="image-overlay" aria-hidden="true">
                 <svg class="icon"><use href="#icon-arrow-up-right"/></svg>
               </span>
@@ -340,9 +440,9 @@
             </div>
           </article>
 
-          <article class="project-card reveal delay-1">
+          <article class="project-card reveal delay-1" data-category="fullstack backend" data-skills="react nodejs express mongodb">
             <button type="button" class="project-image" data-dialog-open="modal-rewear" aria-label="Open ReWear case study">
-              <img src="img/projects/rewear/rewear-homepage.webp" alt="ReWear Clothing Exchange Marketplace interface" width="1600" height="900" loading="lazy" decoding="async">
+              <img src="img/projects/rewear/rewear-homepage.webp" srcset="img/projects/rewear/rewear-homepage-sm.webp 640w, img/projects/rewear/rewear-homepage.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 991px) 351px, 537px" alt="ReWear Clothing Exchange Marketplace interface" width="1600" height="900" loading="lazy" decoding="async">
               <span class="image-overlay" aria-hidden="true">
                 <svg class="icon"><use href="#icon-arrow-up-right"/></svg>
               </span>
@@ -376,9 +476,9 @@
             </div>
           </article>
 
-          <article class="project-card reveal delay-2">
+          <article class="project-card reveal delay-2" data-category="fullstack backend" data-skills="react nodejs express postgresql tailwind">
             <button type="button" class="project-image" data-dialog-open="modal-fingrow" aria-label="Open FinGrow case study">
-              <img src="img/projects/fingrow/fingrow-dashboard.webp" alt="FinGrow personal finance and habit tracking dashboard" width="1440" height="900" loading="lazy" decoding="async">
+              <img class="media-light-surface" src="img/projects/fingrow/fingrow-dashboard.webp" srcset="img/projects/fingrow/fingrow-dashboard-sm.webp 640w, img/projects/fingrow/fingrow-dashboard.webp 1440w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 991px) 351px, 537px" alt="FinGrow personal finance and habit tracking dashboard" width="1440" height="900" loading="lazy" decoding="async">
               <span class="image-overlay" aria-hidden="true">
                 <svg class="icon"><use href="#icon-arrow-up-right"/></svg>
               </span>
@@ -412,9 +512,9 @@
             </div>
           </article>
 
-          <article class="project-card reveal">
-            <button type="button" class="project-image project-image-wide" data-dialog-open="modal-privlock" aria-label="Open PrivLock AI case study">
-              <img src="img/projects/privlock-ai/privlock-ai.webp" alt="PrivLock AI intelligent PII detection and redaction interface" width="1600" height="725" loading="lazy" decoding="async">
+          <article class="project-card reveal" data-category="ai backend mobile" data-skills="python flask flutter dart mysql postgresql ocr">
+            <button type="button" class="project-image" data-dialog-open="modal-privlock" aria-label="Open PrivLock AI case study">
+              <img class="media-light-surface" src="img/projects/privlock-ai/privlock-ai.webp" srcset="img/projects/privlock-ai/privlock-ai-sm.webp 640w, img/projects/privlock-ai/privlock-ai.webp 1440w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 991px) 351px, 352px" alt="PrivLock AI intelligent PII detection and redaction interface" width="1440" height="810" loading="lazy" decoding="async">
               <span class="image-overlay" aria-hidden="true">
                 <svg class="icon"><use href="#icon-arrow-up-right"/></svg>
               </span>
@@ -448,9 +548,9 @@
             </div>
           </article>
 
-          <article class="project-card reveal delay-1">
-            <button type="button" class="project-image project-image-wide" data-dialog-open="modal-ecotrack" aria-label="Open EcoTrack case study">
-              <img src="img/projects/eco-track/eco-tracker.webp" alt="EcoTrack carbon footprint application" width="1600" height="743" loading="lazy" decoding="async">
+          <article class="project-card reveal delay-1" data-category="fullstack backend" data-skills="python flask sqlserver html css">
+            <button type="button" class="project-image project-image-center" data-dialog-open="modal-ecotrack" aria-label="Open EcoTrack case study">
+              <img src="img/projects/eco-track/eco-tracker.webp" srcset="img/projects/eco-track/eco-tracker-sm.webp 640w, img/projects/eco-track/eco-tracker.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 991px) 351px, 352px" alt="EcoTrack carbon footprint application" width="1600" height="743" loading="lazy" decoding="async">
               <span class="image-overlay" aria-hidden="true">
                 <svg class="icon"><use href="#icon-arrow-up-right"/></svg>
               </span>
@@ -479,9 +579,9 @@
             </div>
           </article>
 
-          <article class="project-card reveal delay-2">
-            <button type="button" class="project-image" data-dialog-open="modal-college-fees" aria-label="Open College Fees Checker case study">
-              <img src="img/projects/college-fees/college-fees.webp" alt="College Fees Checker application" width="1600" height="850" loading="lazy" decoding="async">
+          <article class="project-card reveal delay-2" data-category="backend" data-skills="nodejs express javascript html css">
+            <button type="button" class="project-image project-image-center" data-dialog-open="modal-college-fees" aria-label="Open College Fees Checker case study">
+              <img class="media-light-surface" src="img/projects/college-fees/college-fees.webp" srcset="img/projects/college-fees/college-fees-sm.webp 640w, img/projects/college-fees/college-fees.webp 1600w" sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 991px) 351px, 352px" alt="College Fees Checker application" width="1600" height="900" loading="lazy" decoding="async">
               <span class="image-overlay" aria-hidden="true">
                 <svg class="icon"><use href="#icon-arrow-up-right"/></svg>
               </span>
@@ -526,30 +626,66 @@
           <p class="eyebrow">Technical toolkit</p>
           <h2 id="skills-title">Tools I use to ship.</h2>
         </div>
+        <p class="skill-note reveal">Select any technology pill below to filter matching project proof or inspect credentials.</p>
         <div class="skills-grid reveal">
           <div class="skill-card">
             <h3>Languages</h3>
-            <p>Java · TypeScript · JavaScript · Python</p>
+            <div class="skill-chip-list">
+              <button type="button" class="skill-chip" data-skill-scroll="#education" data-cert-filter="java" aria-label="Java — view Java credentials">Java</button>
+              <button type="button" class="skill-chip" data-skill-key="typescript" aria-label="TypeScript — filter matching projects">TypeScript</button>
+              <button type="button" class="skill-chip" data-skill-key="javascript" aria-label="JavaScript — filter matching projects">JavaScript</button>
+              <button type="button" class="skill-chip" data-skill-key="python" aria-label="Python — filter matching projects">Python</button>
+              <button type="button" class="skill-chip" data-skill-key="dart" aria-label="Dart — filter matching projects">Dart</button>
+            </div>
           </div>
           <div class="skill-card">
             <h3>Frontend</h3>
-            <p>React · Next.js · Tailwind CSS · Flutter · HTML · CSS</p>
+            <div class="skill-chip-list">
+              <button type="button" class="skill-chip" data-skill-key="react" aria-label="React — filter matching projects">React</button>
+              <button type="button" class="skill-chip" data-skill-key="nextjs" aria-label="Next.js — filter matching projects">Next.js</button>
+              <button type="button" class="skill-chip" data-skill-key="tailwind" aria-label="Tailwind CSS — filter matching projects">Tailwind CSS</button>
+              <button type="button" class="skill-chip" data-skill-key="flutter" aria-label="Flutter — filter matching projects">Flutter</button>
+              <button type="button" class="skill-chip" data-skill-key="html" aria-label="HTML — filter matching projects">HTML</button>
+              <button type="button" class="skill-chip" data-skill-key="css" aria-label="CSS — filter matching projects">CSS</button>
+            </div>
           </div>
           <div class="skill-card">
             <h3>Backend</h3>
-            <p>NestJS · Node.js · Express.js · Flask · FastAPI · REST APIs</p>
+            <div class="skill-chip-list">
+              <button type="button" class="skill-chip" data-skill-key="nestjs" aria-label="NestJS — filter matching projects">NestJS</button>
+              <button type="button" class="skill-chip" data-skill-key="nodejs" aria-label="Node.js — filter matching projects">Node.js</button>
+              <button type="button" class="skill-chip" data-skill-key="express" aria-label="Express.js — filter matching projects">Express.js</button>
+              <button type="button" class="skill-chip" data-skill-key="flask" aria-label="Flask — filter matching projects">Flask</button>
+              <span class="skill-chip skill-chip-static">FastAPI</span>
+              <span class="skill-chip skill-chip-static">REST APIs</span>
+            </div>
           </div>
           <div class="skill-card">
             <h3>Databases</h3>
-            <p>PostgreSQL · Prisma · MySQL · MongoDB · SQL Server (SSMS)</p>
+            <div class="skill-chip-list">
+              <button type="button" class="skill-chip" data-skill-key="postgresql" aria-label="PostgreSQL — filter matching projects">PostgreSQL</button>
+              <button type="button" class="skill-chip" data-skill-key="prisma" aria-label="Prisma — filter matching projects">Prisma</button>
+              <button type="button" class="skill-chip" data-skill-key="mysql" aria-label="MySQL — filter matching projects">MySQL</button>
+              <button type="button" class="skill-chip" data-skill-key="mongodb" aria-label="MongoDB — filter matching projects">MongoDB</button>
+              <button type="button" class="skill-chip" data-skill-key="sqlserver" aria-label="SQL Server — filter matching projects">SQL Server (SSMS)</button>
+            </div>
           </div>
           <div class="skill-card">
             <h3>Tools</h3>
-            <p>Git · GitHub · Docker · Cloudflare Workers · Vercel</p>
+            <div class="skill-chip-list">
+              <button type="button" class="skill-chip" data-skill-scroll="#education" data-cert-filter="gitdb" aria-label="Git &amp; GitHub — view GitHub Foundations credential">Git &amp; GitHub</button>
+              <span class="skill-chip skill-chip-static">Docker</span>
+              <span class="skill-chip skill-chip-static">Cloudflare Workers</span>
+              <span class="skill-chip skill-chip-static">Vercel</span>
+            </div>
           </div>
           <div class="skill-card">
             <h3>Concepts</h3>
-            <p>OOP · DSA · DBMS · RBAC · System Architecture</p>
+            <div class="skill-chip-list">
+              <span class="skill-chip skill-chip-static">OOP · DSA · DBMS</span>
+              <span class="skill-chip skill-chip-static">RBAC · Auth · CSRF</span>
+              <span class="skill-chip skill-chip-static">System Architecture</span>
+            </div>
           </div>
         </div>
       </div>
@@ -588,10 +724,17 @@
 
         <div class="certificate-gallery reveal delay-1">
           <p class="eyebrow">Certifications</p>
-          <div class="certificate-grid">
-            <article class="certificate-card is-featured">
-              <button class="certificate-image" type="button" data-certificate-title="GitHub Foundations" aria-label="View larger GitHub Foundations certificate">
-                <img src="img/certificates/github-foundations-certificate.webp" alt="Certificate for GitHub Foundations" width="1600" height="923" loading="lazy" decoding="async">
+          <div class="filter-bar cert-filters" role="group" aria-label="Filter certifications by topic">
+            <button type="button" class="filter-pill" data-cert-filter="all" aria-pressed="true">All (7)</button>
+            <button type="button" class="filter-pill" data-cert-filter="java" aria-pressed="false">Java &amp; Backend</button>
+            <button type="button" class="filter-pill" data-cert-filter="gitdb" aria-pressed="false">Git &amp; DB</button>
+            <button type="button" class="filter-pill" data-cert-filter="ai" aria-pressed="false">AI &amp; Automation</button>
+            <span class="filter-status" id="cert-filter-status" aria-live="polite">Showing 7 of 7 certifications</span>
+          </div>
+          <div class="certificate-grid" id="certificate-grid">
+            <article class="certificate-card is-featured" data-cert-category="gitdb">
+              <button class="certificate-image" type="button" data-certificate-title="GitHub Foundations" data-verify-url="https://www.datacamp.com/completed/statement-of-accomplishment/track/35e72466d176200ed3e1c2ea26f9deee54d7ba00?utm_medium=organic_social&amp;utm_campaign=sharewidget&amp;utm_content=soa" aria-label="View larger GitHub Foundations certificate">
+                <img class="media-light-surface" src="img/certificates/github-foundations-certificate.webp" alt="Certificate for GitHub Foundations" width="1600" height="923" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
                   <svg class="icon"><use href="#icon-search-plus"/></svg>
                 </span>
@@ -606,9 +749,9 @@
               </div>
             </article>
 
-            <article class="certificate-card">
-              <button class="certificate-image" type="button" data-certificate-title="Getting Started with Full Stack Java Development" aria-label="View larger Getting Started with Full Stack Java Development certificate">
-                <img src="img/certificates/simplilearn-full-stack-java-development-certificate.webp" alt="Certificate for Getting Started with Full Stack Java Development" width="1600" height="1131" loading="lazy" decoding="async">
+            <article class="certificate-card" data-cert-category="java">
+              <button class="certificate-image" type="button" data-certificate-title="Getting Started with Full Stack Java Development" data-verify-url="https://simpli-web.app.link/e/W7b1KVlYn7b" aria-label="View larger Getting Started with Full Stack Java Development certificate">
+                <img class="media-light-surface" src="img/certificates/simplilearn-full-stack-java-development-certificate.webp" alt="Certificate for Getting Started with Full Stack Java Development" width="1600" height="1131" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
                   <svg class="icon"><use href="#icon-search-plus"/></svg>
                 </span>
@@ -623,9 +766,9 @@
               </div>
             </article>
 
-            <article class="certificate-card">
-              <button class="certificate-image" type="button" data-certificate-title="Object Oriented Programming in Java" aria-label="View larger Object Oriented Programming in Java certificate">
-                <img src="img/certificates/ibm-object-oriented-programming-in-java-coursera-certificate.webp" alt="Certificate for Object Oriented Programming in Java" width="1024" height="791" loading="lazy" decoding="async">
+            <article class="certificate-card" data-cert-category="java">
+              <button class="certificate-image" type="button" data-certificate-title="Object Oriented Programming in Java" data-verify-url="https://www.coursera.org/account/accomplishments/verify/QA5HMNOP1EZ5" aria-label="View larger Object Oriented Programming in Java certificate">
+                <img class="media-light-surface" src="img/certificates/ibm-object-oriented-programming-in-java-coursera-certificate.webp" alt="Certificate for Object Oriented Programming in Java" width="1024" height="791" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
                   <svg class="icon"><use href="#icon-search-plus"/></svg>
                 </span>
@@ -640,9 +783,9 @@
               </div>
             </article>
 
-            <article class="certificate-card">
-              <button class="certificate-image" type="button" data-certificate-title="Java Programming for Beginners" aria-label="View larger Java Programming for Beginners certificate">
-                <img src="img/certificates/ibm-java-programming-coursera-certificate.webp" alt="Certificate for Java Programming for Beginners" width="1024" height="791" loading="lazy" decoding="async">
+            <article class="certificate-card" data-cert-category="java">
+              <button class="certificate-image" type="button" data-certificate-title="Java Programming for Beginners" data-verify-url="https://www.coursera.org/account/accomplishments/verify/PGZVJNFGEY5O" aria-label="View larger Java Programming for Beginners certificate">
+                <img class="media-light-surface" src="img/certificates/ibm-java-programming-coursera-certificate.webp" alt="Certificate for Java Programming for Beginners" width="1024" height="791" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
                   <svg class="icon"><use href="#icon-search-plus"/></svg>
                 </span>
@@ -657,16 +800,16 @@
               </div>
             </article>
 
-            <article class="certificate-card">
-              <button class="certificate-image" type="button" data-certificate-title="Artificial Intelligence IBM SkillsBuild Advanced IT Skills Program" aria-label="View larger Artificial Intelligence IBM SkillsBuild certificate">
-                <img src="img/certificates/ibm-skillsbuild-certificate.webp" alt="Certificate for Artificial Intelligence IBM SkillsBuild" width="1023" height="733" loading="lazy" decoding="async">
+            <article class="certificate-card" data-cert-category="ai">
+              <button class="certificate-image" type="button" data-certificate-title="Artificial Intelligence IBM SkillsBuild Advanced IT Skills Program" data-verify-url="https://verify.ictacademy.in/Certificate.aspx?c=/aJGWXYlcOnveZMG9vmaB1sPHsIJvHpOySO/kL00aBfk7n69NnSW1x85tUReK6++" aria-label="View larger Artificial Intelligence IBM SkillsBuild certificate">
+                <img class="media-light-surface" src="img/certificates/ibm-skillsbuild-certificate.webp" alt="Certificate for Artificial Intelligence IBM SkillsBuild" width="1023" height="733" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
                   <svg class="icon"><use href="#icon-search-plus"/></svg>
                 </span>
               </button>
               <div class="certificate-copy">
                 <h3>Artificial Intelligence IBM SkillsBuild</h3>
-                <p>Advanced IT Skills Program · ICT Academy · 2025</p>
+                <p>Advanced IT Skills Program · ICT Academy · Grade A+ · Dec 2025</p>
                 <a class="certificate-verify" href="https://verify.ictacademy.in/Certificate.aspx?c=/aJGWXYlcOnveZMG9vmaB1sPHsIJvHpOySO/kL00aBfk7n69NnSW1x85tUReK6++" target="_blank" rel="noopener noreferrer">
                   Verify Certificate
                   <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
@@ -674,16 +817,16 @@
               </div>
             </article>
 
-            <article class="certificate-card">
-              <button class="certificate-image" type="button" data-certificate-title="MongoDB Basics for Students" aria-label="View larger MongoDB Basics for Students certificate">
-                <img src="img/certificates/mongodb-certificate.webp" alt="Certificate for MongoDB Basics for Students" width="1600" height="1132" loading="lazy" decoding="async">
+            <article class="certificate-card" data-cert-category="gitdb">
+              <button class="certificate-image" type="button" data-certificate-title="MongoDB Basics for Students" data-verify-url="https://www.credly.com/badges/5af1c57c-497d-4b46-a900-38414bf2628d" aria-label="View larger MongoDB Basics for Students certificate">
+                <img class="media-light-surface" src="img/certificates/mongodb-certificate.webp" alt="Certificate for MongoDB Basics for Students" width="1600" height="1132" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
                   <svg class="icon"><use href="#icon-search-plus"/></svg>
                 </span>
               </button>
               <div class="certificate-copy">
                 <h3>MongoDB Basics for Students</h3>
-                <p>MongoDB · 2025</p>
+                <p>MongoDB · Jul 2025</p>
                 <a class="certificate-verify" href="https://www.credly.com/badges/5af1c57c-497d-4b46-a900-38414bf2628d" target="_blank" rel="noopener noreferrer">
                   Verify Certificate
                   <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
@@ -692,7 +835,7 @@
             </article>
 
             <!-- No RPA Foundation Course verification URL exists in the project history. -->
-            <article class="certificate-card">
+            <article class="certificate-card" data-cert-category="ai">
               <button class="certificate-image" type="button" data-certificate-title="RPA Foundation Course" aria-label="View larger RPA Foundation Course certificate">
                 <img src="img/certificates/uipath-certificate.webp" alt="Certificate for RPA Foundation Course" width="1600" height="1130" loading="lazy" decoding="async">
                 <span class="certificate-zoom" aria-hidden="true">
@@ -701,7 +844,7 @@
               </button>
               <div class="certificate-copy">
                 <h3>RPA Foundation Course</h3>
-                <p>UiPath · Naan Mudhalvan · 2024</p>
+                <p>UiPath · Naan Mudhalvan · Nov 2024</p>
                 <span class="certificate-status">Verification link unavailable</span>
               </div>
             </article>
@@ -772,15 +915,22 @@
               <span>Copy</span>
             </button>
           </div>
-          <a href="tel:+919360958479" class="contact-row-link">
-            <span class="contact-icon-box" aria-hidden="true">
-              <svg class="icon"><use href="#icon-phone"/></svg>
-            </span>
-            <span>
-              <small>Phone</small>
-              <strong>+91 93609 58479</strong>
-            </span>
-          </a>
+          <div class="phone-row-slot">
+            <div class="contact-row-static">
+              <span class="contact-icon-box" aria-hidden="true">
+                <svg class="icon"><use href="#icon-phone"/></svg>
+              </span>
+              <span>
+                <small>Phone</small>
+                <span id="phone-slot" aria-live="polite">
+                  <strong>Available on request</strong>
+                </span>
+              </span>
+            </div>
+            <button type="button" class="reveal-phone-btn" id="reveal-phone-btn" aria-controls="phone-slot" aria-expanded="false">
+              Reveal phone
+            </button>
+          </div>
           <div class="contact-row-static">
             <span class="contact-icon-box" aria-hidden="true">
               <svg class="icon"><use href="#icon-map-pin"/></svg>
@@ -828,19 +978,98 @@
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close certificate preview">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <img id="certificate-lightbox-image" src="" alt="" decoding="async">
-      <p id="certificate-lightbox-title"></p>
+      <div class="lightbox-stage">
+        <button class="gallery-nav gallery-prev" id="cert-lb-prev" type="button" aria-label="Previous certificate">
+          <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+        </button>
+        <img id="certificate-lightbox-image" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="" width="1600" height="1131" decoding="async">
+        <button class="gallery-nav gallery-next" id="cert-lb-next" type="button" aria-label="Next certificate">
+          <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+        </button>
+      </div>
+      <div class="lightbox-footer">
+        <div class="lightbox-meta">
+          <p id="certificate-lightbox-title">Certificate preview</p>
+          <span class="lightbox-counter" id="certificate-lightbox-counter">1 / 3</span>
+        </div>
+        <div class="lightbox-actions">
+          <a class="button button-secondary lightbox-verify" id="cert-lb-verify" href="https://learn.mongodb.com/" target="_blank" rel="noopener noreferrer" hidden>
+            Verify Credential
+            <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="modal-chapterwhen" aria-labelledby="modal-chapterwhen-title">
+  <dialog class="app-dialog" id="modal-chapterwhen" aria-labelledby="modal-chapterwhen-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close ChapterWhen case study">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <div class="dialog-media-grid">
-        <img src="img/projects/chapterwhen/chapterwhen-home.webp" alt="ChapterWhen homepage and featured novel view" width="1440" height="900" loading="lazy" decoding="async">
-        <img src="img/projects/chapterwhen/chapterwhen-reader.webp" alt="ChapterWhen distraction-free chapter reader view" width="1440" height="900" loading="lazy" decoding="async">
+      <div class="modal-tabs" role="tablist" aria-label="ChapterWhen exploration views">
+        <button class="modal-tab" type="button" role="tab" id="cw-tab-btn-gallery" aria-selected="true" aria-controls="cw-tab-gallery">Gallery (6)</button>
+        <button class="modal-tab" type="button" role="tab" id="cw-tab-btn-arch" aria-selected="false" aria-controls="cw-tab-arch" tabindex="-1">Architecture</button>
+        <button class="modal-tab" type="button" role="tab" id="cw-tab-btn-reader" aria-selected="false" aria-controls="cw-tab-reader" tabindex="-1">Reader Themes</button>
+      </div>
+      <div class="modal-tab-panel" id="cw-tab-gallery" role="tabpanel" aria-labelledby="cw-tab-btn-gallery">
+        <figure class="dialog-gallery" data-gallery='[{"src":"img/projects/chapterwhen/chapterwhen-home.webp","width":1440,"height":900,"thumbLabel":"Landing","caption":"Home showcase featuring editorial hero and featured Web Novels","alt":"ChapterWhen homepage and featured novel view","light":true,"portrait":false},{"src":"img/projects/chapterwhen/chapterwhen-browse.webp","width":1440,"height":900,"thumbLabel":"Catalog","caption":"Filterable novel catalog with genre tags, status, and search","alt":"ChapterWhen browsable catalog interface","light":true,"portrait":false},{"src":"img/projects/chapterwhen/chapterwhen-detail.webp","width":1440,"height":900,"thumbLabel":"Novel Detail","caption":"Novel detail page with synopsis, chapter index, and bookmark controls","alt":"ChapterWhen novel detail and table of contents view","light":true,"portrait":false},{"src":"img/projects/chapterwhen/chapterwhen-reader.webp","width":1440,"height":900,"thumbLabel":"Reader","caption":"Distraction-free Bookcloth chapter reader with typography and TTS controls","alt":"ChapterWhen distraction-free chapter reader view","light":true,"portrait":false},{"src":"img/projects/chapterwhen/chapterwhen-mobile-night.webp","width":540,"height":1168,"thumbLabel":"Mobile Night","caption":"Responsive mobile reader running Night Obsidian theme","alt":"ChapterWhen mobile reader view in Night Obsidian dark theme","light":false,"portrait":true},{"src":"img/projects/chapterwhen/chapterwhen-universe.webp","width":1366,"height":900,"thumbLabel":"Lore Graph","caption":"Interactive Novel Universe lore graph with @xyflow/react and spoiler guards","alt":"ChapterWhen interactive Novel Universe lore graph","light":true,"portrait":false}]' aria-label="ChapterWhen screenshots">
+          <div class="dialog-gallery-stage">
+            <button class="gallery-nav gallery-prev" type="button" aria-label="Previous screenshot">
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+            </button>
+            <img class="dialog-gallery-img media-light-surface" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="ChapterWhen homepage and featured novel view" width="1440" height="900" decoding="async">
+            <button class="gallery-nav gallery-next" type="button" aria-label="Next screenshot">
+              <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+            </button>
+          </div>
+          <figcaption class="dialog-gallery-bar">
+            <span class="gallery-caption">Home showcase featuring editorial hero and featured Web Novels</span>
+            <span class="gallery-counter">1 / 6</span>
+          </figcaption>
+          <div class="gallery-thumbs" role="group" aria-label="Choose ChapterWhen screenshot"></div>
+        </figure>
+      </div>
+      <div class="modal-tab-panel" id="cw-tab-arch" role="tabpanel" aria-labelledby="cw-tab-btn-arch" hidden>
+        <div class="arch-panel">
+          <div class="arch-nodes" role="group" aria-label="ChapterWhen architecture layers">
+            <button class="arch-node" type="button" data-arch-node="web" aria-pressed="true">
+              <small>Frontend &amp; PWA</small>
+              <strong>Next.js 16 + React 19</strong>
+            </button>
+            <button class="arch-node" type="button" data-arch-node="api" aria-pressed="false">
+              <small>REST Backend</small>
+              <strong>NestJS 12 API</strong>
+            </button>
+            <button class="arch-node" type="button" data-arch-node="db" aria-pressed="false">
+              <small>Persistence</small>
+              <strong>PostgreSQL 18 + Prisma 7</strong>
+            </button>
+            <button class="arch-node" type="button" data-arch-node="lore" aria-pressed="false">
+              <small>Authoring &amp; Lore</small>
+              <strong>Tiptap + @xyflow/react</strong>
+            </button>
+          </div>
+          <div class="arch-flow-arrow" aria-hidden="true">Browser / PWA -&gt; Next.js 16 (Vercel) -&gt; NestJS 12 API (Render) -&gt; PostgreSQL 18 (Neon)</div>
+          <div class="arch-spec-box" aria-live="polite">
+            <h3 id="cw-arch-title">Next.js 16 + React 19 (Vercel)</h3>
+            <p id="cw-arch-desc">App Router frontend styled with Tailwind CSS v4, offline service-worker chapter caching, Bookcloth/Folio/Classic reader editions, and shared TypeScript domain contracts across workspaces.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-tab-panel" id="cw-tab-reader" role="tabpanel" aria-labelledby="cw-tab-btn-reader" hidden>
+        <div class="reader-preview-panel">
+          <div class="reader-swatch-row" role="group" aria-label="Select reader theme preset">
+            <button class="reader-swatch" type="button" data-theme-choice="paper" aria-pressed="true">Paper Light</button>
+            <button class="reader-swatch" type="button" data-theme-choice="sepia" aria-pressed="false">Warm Sepia</button>
+            <button class="reader-swatch" type="button" data-theme-choice="night" aria-pressed="false">Night Obsidian</button>
+          </div>
+          <div class="reader-excerpt" id="cw-reader-excerpt" data-reader-theme="paper">
+            <div class="reader-excerpt-meta">Bookcloth Edition · Chapter 01 Preview</div>
+            <h3>The Lantern Above the Harbor</h3>
+            <p>Rain traced slow silver seams down the observatory glass while the tide bell counted midnight across the lower ward. Every annotated margin in the ledger still smelled faintly of cedar and lamp oil.</p>
+          </div>
+        </div>
       </div>
       <div class="modal-copy">
         <p class="eyebrow">Full-Stack Platform · Installable PWA</p>
@@ -851,8 +1080,8 @@
             <h3>Architecture &amp; Security</h3>
             <ul>
               <li>Next.js 16 (App Router, React 19, Tailwind CSS v4) web app deployed on Vercel alongside a NestJS 12 REST API (25+ domain modules) on Render.</li>
-              <li>PostgreSQL 18 on Neon accessed through Prisma 7 (`@prisma/adapter-pg`) with shared TypeScript types and validation schemas.</li>
-              <li>Argon2id password hashing, HttpOnly JWT cookie sessions, CSRF origin/header verification (`X-Requested-With`), server-side HTML prose sanitization, and route throttling.</li>
+              <li>PostgreSQL 18 on Neon accessed through Prisma 7 (<code>@prisma/adapter-pg</code>) with shared TypeScript types and validation schemas.</li>
+              <li>Argon2id password hashing, HttpOnly JWT cookie sessions, CSRF origin/header verification (<code>X-Requested-With</code>), server-side HTML prose sanitization, and route throttling.</li>
             </ul>
           </div>
           <div>
@@ -860,7 +1089,7 @@
             <ul>
               <li>Reader studio with Bookcloth, Folio, and Classic designs, five reading themes, Web Speech TTS, highlights, bookmarks, 3-level threaded comments, and offline PWA chapter sync.</li>
               <li>Author Studio featuring Tiptap rich-text drafting, autosave, scheduled publishing, DOCX/PDF manuscript import into editable drafts, and privacy-safe readership analytics.</li>
-              <li>Novel Universe encyclopedia, timeline, and interactive `@xyflow/react` lore connection map protected by server-enforced three-tier spoiler redaction.</li>
+              <li>Novel Universe encyclopedia, timeline, and interactive <code>@xyflow/react</code> lore connection map protected by server-enforced three-tier spoiler redaction.</li>
             </ul>
           </div>
         </div>
@@ -890,16 +1119,47 @@
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="modal-rewear" aria-labelledby="modal-rewear-title">
+  <dialog class="app-dialog" id="modal-rewear" aria-labelledby="modal-rewear-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close ReWear project details">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <img class="dialog-hero-img" src="img/projects/rewear/rewear-homepage.webp" alt="ReWear Clothing Exchange Marketplace interface" width="1600" height="900" loading="lazy" decoding="async">
+      <figure class="dialog-gallery" data-gallery='[{"src":"img/projects/rewear/rewear-homepage.webp","width":1600,"height":900,"thumbLabel":"Landing","caption":"ReWear landing experience highlighting community clothing swap flows","alt":"ReWear Clothing Exchange Marketplace landing interface","light":false,"portrait":false},{"src":"img/projects/rewear/rewear-marketplace.webp","width":1440,"height":810,"thumbLabel":"Explore","caption":"Browseable marketplace feed with category, size, and condition filters","alt":"ReWear browsable marketplace listing feed","light":false,"portrait":false},{"src":"img/projects/rewear/rewear-item-details.webp","width":1440,"height":810,"thumbLabel":"Item View","caption":"Item detail page with condition notes, point value, and swap request action","alt":"ReWear individual garment detail and swap request view","light":false,"portrait":false},{"src":"img/projects/rewear/rewear-admin.webp","width":1440,"height":810,"thumbLabel":"Admin","caption":"Role-based admin dashboard for listing moderation and swap oversight","alt":"ReWear administrator moderation dashboard","light":false,"portrait":false},{"src":"img/projects/rewear/rewear-faq.webp","width":1440,"height":810,"thumbLabel":"FAQ Guide","caption":"Swap workflow guide explaining point credits and exchange verification","alt":"ReWear clothing exchange frequently asked questions view","light":false,"portrait":false}]' aria-label="ReWear screenshots">
+        <div class="dialog-gallery-stage">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+          </button>
+          <img class="dialog-gallery-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="ReWear Clothing Exchange Marketplace landing interface" width="1600" height="900" decoding="async">
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+          </button>
+        </div>
+        <figcaption class="dialog-gallery-bar">
+          <span class="gallery-caption">ReWear landing experience highlighting community clothing swap flows</span>
+          <span class="gallery-counter">1 / 5</span>
+        </figcaption>
+        <div class="gallery-thumbs" role="group" aria-label="Choose ReWear screenshot"></div>
+      </figure>
       <div class="modal-copy">
         <p class="eyebrow">Clothing Exchange Marketplace</p>
         <h2 id="modal-rewear-title">ReWear</h2>
         <p>Built a full-stack clothing exchange marketplace using React, Node.js, Express.js, and MongoDB, implementing authentication, listings, swaps, image uploads, chat, dashboards, and role-based admin functionality.</p>
+        <div class="case-study-grid">
+          <div>
+            <h3>Backend &amp; Data Flow</h3>
+            <ul>
+              <li>Node.js + Express.js REST API backed by MongoDB schemas for garment listings, swap proposals, and user point balances.</li>
+              <li>Authenticated image upload flows and role-separated moderation routes protecting admin review queues.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Marketplace Capabilities</h3>
+            <ul>
+              <li>Searchable garment discovery, item detail pages, direct swap negotiation, and member messaging.</li>
+              <li>Member dashboard alongside moderator controls to approve listings and inspect exchange states.</li>
+            </ul>
+          </div>
+        </div>
         <div class="badges">
           <span>React</span>
           <span>Node.js</span>
@@ -920,16 +1180,47 @@
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="modal-fingrow" aria-labelledby="modal-fingrow-title">
+  <dialog class="app-dialog" id="modal-fingrow" aria-labelledby="modal-fingrow-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close FinGrow project details">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <img class="dialog-hero-img" src="img/projects/fingrow/fingrow-dashboard.webp" alt="FinGrow personal finance and habit tracking dashboard" width="1440" height="900" loading="lazy" decoding="async">
+      <figure class="dialog-gallery" data-gallery='[{"src":"img/projects/fingrow/fingrow-dashboard.webp","width":1440,"height":900,"thumbLabel":"Dashboard","caption":"Unified cash-flow overview combining balances, monthly trends, and habit streaks","alt":"FinGrow personal finance and habit tracking dashboard","light":true,"portrait":false},{"src":"img/projects/fingrow/fingrow-transactions.webp","width":1440,"height":900,"thumbLabel":"Transactions","caption":"Income and expense ledger filterable across 18 built-in categories","alt":"FinGrow filterable income and expense transaction ledger","light":true,"portrait":false},{"src":"img/projects/fingrow/fingrow-habits.webp","width":1440,"height":900,"thumbLabel":"Habits","caption":"Daily financial habit tracker with streak mechanics and completion telemetry","alt":"FinGrow daily financial habit streak tracker","light":true,"portrait":false},{"src":"img/projects/fingrow/fingrow-goals.webp","width":1440,"height":900,"thumbLabel":"Savings Goals","caption":"Earmarked savings targets tracking milestone contributions over time","alt":"FinGrow earmarked savings goals view","light":true,"portrait":false},{"src":"img/projects/fingrow/fingrow-wealth.webp","width":1440,"height":900,"thumbLabel":"Net Worth","caption":"Assets vs. liabilities balance-sheet snapshot tracking net worth growth","alt":"FinGrow balance-sheet net worth overview","light":true,"portrait":false},{"src":"img/projects/fingrow/fingrow-admin.webp","width":1440,"height":900,"thumbLabel":"Admin","caption":"Role-based administration panel for account oversight and system telemetry","alt":"FinGrow admin console view","light":true,"portrait":false}]' aria-label="FinGrow screenshots">
+        <div class="dialog-gallery-stage">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+          </button>
+          <img class="dialog-gallery-img media-light-surface" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="FinGrow personal finance and habit tracking dashboard" width="1440" height="900" decoding="async">
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+          </button>
+        </div>
+        <figcaption class="dialog-gallery-bar">
+          <span class="gallery-caption">Unified cash-flow overview combining balances, monthly trends, and habit streaks</span>
+          <span class="gallery-counter">1 / 6</span>
+        </figcaption>
+        <div class="gallery-thumbs" role="group" aria-label="Choose FinGrow screenshot"></div>
+      </figure>
       <div class="modal-copy">
         <p class="eyebrow">Personal Finance &amp; Habits</p>
         <h2 id="modal-fingrow-title">FinGrow</h2>
         <p>A full-stack personal finance and habit-building web application built with React, Node.js, Express, PostgreSQL, and Tailwind CSS. Combines income and expense tracking across 18 categories, habit streak mechanics, earmarked savings targets, and balance-sheet net worth tracking into a unified dashboard.</p>
+        <div class="case-study-grid">
+          <div>
+            <h3>Architecture &amp; Persistence</h3>
+            <ul>
+              <li>React + Tailwind CSS frontend paired with a Node.js and Express.js backend writing structured ledger records to PostgreSQL.</li>
+              <li>Relational schemas separate income/expense entries, earmarked goals, assets/liabilities, and habit logs cleanly.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Financial &amp; Behavioral Tools</h3>
+            <ul>
+              <li>18-category transaction ledger alongside streak-based daily saving/budgeting habits.</li>
+              <li>Dedicated net worth balance sheet and admin console for operational monitoring.</li>
+            </ul>
+          </div>
+        </div>
         <div class="badges">
           <span>React</span>
           <span>Node.js</span>
@@ -951,16 +1242,47 @@
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="modal-privlock" aria-labelledby="modal-privlock-title">
+  <dialog class="app-dialog" id="modal-privlock" aria-labelledby="modal-privlock-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close PrivLock AI project details">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <img class="dialog-hero-img" src="img/projects/privlock-ai/privlock-ai.webp" alt="PrivLock AI intelligent PII detection and redaction interface" width="1600" height="725" loading="lazy" decoding="async">
+      <figure class="dialog-gallery" data-gallery='[{"src":"img/projects/privlock-ai/privlock-ai.webp","width":1440,"height":810,"thumbLabel":"Web Upload","caption":"Web scanner upload queue supporting PDF, DOCX, and image documents","alt":"PrivLock AI web document upload and redaction workspace","light":true,"portrait":false},{"src":"img/projects/privlock-ai/privlock-web-result.webp","width":1440,"height":810,"thumbLabel":"Redaction","caption":"Redacted output masking detected Aadhaar, PAN, email, and phone entities","alt":"PrivLock AI redacted document output preview","light":true,"portrait":false},{"src":"img/projects/privlock-ai/privlock-web-details.webp","width":1440,"height":810,"thumbLabel":"Findings","caption":"Entity breakdown showing Regex and NER classifications across scanned text","alt":"PrivLock AI detected sensitive entity breakdown","light":true,"portrait":false},{"src":"img/projects/privlock-ai/privlock-web-audit.webp","width":1440,"height":810,"thumbLabel":"Audit Log","caption":"MySQL-backed document processing history and audit trail","alt":"PrivLock AI processing audit log table","light":true,"portrait":false},{"src":"img/projects/privlock-ai/privlock-android-dashboard.webp","width":540,"height":1200,"thumbLabel":"Android Home","caption":"Flutter Android companion app for mobile document capture and redaction","alt":"PrivLock AI Flutter Android mobile home screen","light":true,"portrait":true},{"src":"img/projects/privlock-ai/privlock-android-result.webp","width":540,"height":1200,"thumbLabel":"Android Output","caption":"Mobile redaction summary and export view on Android","alt":"PrivLock AI Flutter Android redacted document summary","light":true,"portrait":true}]' aria-label="PrivLock AI screenshots">
+        <div class="dialog-gallery-stage">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+          </button>
+          <img class="dialog-gallery-img media-light-surface" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="PrivLock AI web document upload and redaction workspace" width="1440" height="810" decoding="async">
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+          </button>
+        </div>
+        <figcaption class="dialog-gallery-bar">
+          <span class="gallery-caption">Web scanner upload queue supporting PDF, DOCX, and image documents</span>
+          <span class="gallery-counter">1 / 6</span>
+        </figcaption>
+        <div class="gallery-thumbs" role="group" aria-label="Choose PrivLock AI screenshot"></div>
+      </figure>
       <div class="modal-copy">
-        <p class="eyebrow">AI &amp; privacy</p>
+        <p class="eyebrow">AI &amp; Privacy</p>
         <h2 id="modal-privlock-title">PrivLock AI</h2>
         <p>An AI-powered document privacy system using Python, Flutter, OCR, Regex, NER, and MySQL. It automates detection and redaction of sensitive information in PDF, Word, and image documents.</p>
+        <div class="case-study-grid">
+          <div>
+            <h3>Detection Pipeline</h3>
+            <ul>
+              <li>Combines OCR text extraction with deterministic Regex rules and NLP Named Entity Recognition (NER) in Python.</li>
+              <li>Persists scan metadata and redaction audit events in MySQL for compliance review.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Cross-Platform Clients</h3>
+            <ul>
+              <li>Web application for batch PDF, Word, and image inspection with side-by-side redacted results.</li>
+              <li>Flutter Android mobile interface supporting capture, entity review, and export on device.</li>
+            </ul>
+          </div>
+        </div>
         <div class="badges">
           <span>Python</span>
           <span>Flutter</span>
@@ -983,16 +1305,47 @@
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="modal-ecotrack" aria-labelledby="modal-ecotrack-title">
+  <dialog class="app-dialog" id="modal-ecotrack" aria-labelledby="modal-ecotrack-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close EcoTrack project details">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <img class="dialog-hero-img" src="img/projects/eco-track/eco-tracker.webp" alt="EcoTrack carbon footprint application" width="1600" height="743" loading="lazy" decoding="async">
+      <figure class="dialog-gallery" data-gallery='[{"src":"img/projects/eco-track/eco-tracker.webp","width":1600,"height":743,"thumbLabel":"Calculator","caption":"Flask web dashboard collecting commute, home energy, and lifestyle inputs","alt":"EcoTrack carbon footprint calculator input interface","light":false,"portrait":false},{"src":"img/projects/eco-track/ecotrack-result.webp","width":1440,"height":810,"thumbLabel":"Breakdown","caption":"Calculated annual emissions summary with category comparisons and reduction tips","alt":"EcoTrack emission breakdown and results visualization","light":false,"portrait":false}]' aria-label="EcoTrack screenshots">
+        <div class="dialog-gallery-stage">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+          </button>
+          <img class="dialog-gallery-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="EcoTrack carbon footprint calculator input interface" width="1600" height="743" decoding="async">
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next screenshot">
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+          </button>
+        </div>
+        <figcaption class="dialog-gallery-bar">
+          <span class="gallery-caption">Flask web dashboard collecting commute, home energy, and lifestyle inputs</span>
+          <span class="gallery-counter">1 / 2</span>
+        </figcaption>
+        <div class="gallery-thumbs" role="group" aria-label="Choose EcoTrack screenshot"></div>
+      </figure>
       <div class="modal-copy">
-        <p class="eyebrow">Full-stack web app</p>
+        <p class="eyebrow">Full-Stack Web App</p>
         <h2 id="modal-ecotrack-title">EcoTrack</h2>
         <p>A full-stack carbon-footprint web application built with Flask and Python. Secure authentication and data visualization features help users track and reduce their carbon footprint.</p>
+        <div class="case-study-grid">
+          <div>
+            <h3>Server &amp; Calculation Engine</h3>
+            <ul>
+              <li>Python + Flask MVC routes handling user authentication and emission factor calculations.</li>
+              <li>Stores personal activity logs to summarize household, transit, and lifestyle impacts.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Results &amp; Insights</h3>
+            <ul>
+              <li>Structured multi-category emission charts highlighting top reduction opportunities.</li>
+              <li>Actionable recommendations tailored to each recorded activity profile.</li>
+            </ul>
+          </div>
+        </div>
         <div class="badges">
           <span>Python</span>
           <span>Flask</span>
@@ -1008,16 +1361,45 @@
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="modal-college-fees" aria-labelledby="modal-college-fees-title">
+  <dialog class="app-dialog" id="modal-college-fees" aria-labelledby="modal-college-fees-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close College Fees Checker project details">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
       </button>
-      <img class="dialog-hero-img" src="img/projects/college-fees/college-fees.webp" alt="College Fees Checker application" width="1600" height="850" loading="lazy" decoding="async">
+      <figure class="dialog-gallery" data-gallery='[{"src":"img/projects/college-fees/college-fees.webp","width":1600,"height":900,"thumbLabel":"Lookup UI","caption":"Responsive Node.js and Express.js lookup flow calculating department fee totals","alt":"College Fees Checker responsive lookup application","light":true,"portrait":false}]' aria-label="College Fees Checker screenshot">
+        <div class="dialog-gallery-stage">
+          <button class="gallery-nav gallery-prev" type="button" aria-label="Previous screenshot" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"/></svg>
+          </button>
+          <img class="dialog-gallery-img media-light-surface" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="College Fees Checker responsive lookup application" width="1600" height="900" decoding="async">
+          <button class="gallery-nav gallery-next" type="button" aria-label="Next screenshot" hidden>
+            <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+          </button>
+        </div>
+        <figcaption class="dialog-gallery-bar">
+          <span class="gallery-caption">Responsive Node.js and Express.js lookup flow calculating department fee totals</span>
+          <span class="gallery-counter" hidden>1 / 1</span>
+        </figcaption>
+        <div class="gallery-thumbs" role="group" aria-label="Choose College Fees Checker screenshot" hidden></div>
+      </figure>
       <div class="modal-copy">
-        <p class="eyebrow">Web application</p>
+        <p class="eyebrow">Web Application</p>
         <h2 id="modal-college-fees-title">College Fees Checker</h2>
         <p>A dynamic fee-calculation system built with Node.js and Express.js, with a responsive interface for instant fee viewing.</p>
+        <div class="case-study-grid">
+          <div>
+            <h3>Express.js Calculation Logic</h3>
+            <ul>
+              <li>Node.js + Express.js routes computing itemized tuition, lab, and hostel breakdowns on demand.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Responsive Lookup UX</h3>
+            <ul>
+              <li>Single-page calculation workflow designed for fast student and parent access on desktop and mobile.</li>
+            </ul>
+          </div>
+        </div>
         <div class="badges">
           <span>Node.js</span>
           <span>Express.js</span>
@@ -1033,7 +1415,7 @@
     </div>
   </dialog>
 
-  <dialog class="app-dialog dialog-lg" id="resumeModal" aria-labelledby="resume-title">
+  <dialog class="app-dialog" id="resumeModal" aria-labelledby="resume-title">
     <div class="dialog-panel">
       <button class="dialog-close" type="button" data-dialog-close aria-label="Close resume preview">
         <svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg>
@@ -1045,7 +1427,7 @@
         <div class="modal-actions resume-actions">
           <a class="button button-primary" href="docs/Paulson_J_Resume.pdf" download>
             <svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>
-            Download Resume
+            Download Résumé
           </a>
           <a class="button button-secondary" href="docs/Paulson_J_Resume.pdf" target="_blank" rel="noopener noreferrer">
             <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
@@ -1055,13 +1437,13 @@
         <div class="resume-embed-container">
           <picture>
             <source data-srcset="img/resume-preview.webp" type="image/webp">
-            <img id="resume-preview-img" data-src="img/resume-preview.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Paulson J Resume Preview" width="1440" height="2038" decoding="async">
+            <img class="media-light-surface" id="resume-preview-img" data-src="img/resume-preview.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="Paulson J Resume Preview" width="1440" height="2038" decoding="async">
           </picture>
         </div>
       </div>
     </div>
   </dialog>
 
-  <script src="js/custom.js" defer></script>
+  <script src="js/custom.js?v=20261125-8" defer></script>
 </body>
 </html>

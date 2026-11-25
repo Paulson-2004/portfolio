@@ -1,0 +1,43 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-v9K6Mv/G5uLorp6dXeE9Ktu9+NDJ3Sa4IZCgRMj5piI='; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/css/*
+  Cache-Control: public, max-age=2592000, must-revalidate
+
+/js/*
+  Cache-Control: public, max-age=2592000, must-revalidate
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=2592000
+
+/docs/*
+  ! Content-Security-Policy
+  Cache-Control: public, max-age=86400, must-revalidate
+  Content-Security-Policy: default-src 'none'; object-src 'self'; style-src 'unsafe-inline'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+https://portfolio.jpaulson2004.workers.dev/*
+  X-Robots-Tag: noindex, follow
