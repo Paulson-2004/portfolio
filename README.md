@@ -1,26 +1,26 @@
 # Paulson J — Portfolio
 
-A fast, responsive portfolio for **Paulson J**, a Java Full Stack Developer and Software Developer. It presents professional experience, selected projects, technical capabilities, education, certifications, and contact details in a recruiter-friendly single-page site.
+A fast, responsive developer portfolio for **Paulson J**, a Java Full Stack Developer and Software Developer. It presents professional experience, production and full-stack projects (featured by **ChapterWhen**), technical capabilities, education, verified certifications, résumé preview, and contact details in a recruiter-friendly single-page site.
 
 ## Features
 
-- Premium responsive hero with a separate, uncropped portrait
-- Accessible sticky navigation, smooth scrolling, visible focus styles, and reduced-motion-friendly interactions
-- Project cards with one visual per project and detail modals
-- Experience timeline, skill categories, education cards, and certification links
-- SEO metadata, Open Graph/Twitter tags, structured data, `robots.txt`, and sitemap
-- Static Cloudflare Pages deployment with no build step
+- Editorial paper-and-ink visual design with Fraunces, Inter, and monospace typography
+- Zero-framework static architecture using native HTML `<dialog>`, CSS Grid, inline SVG icons, and progressive-enhancement JavaScript
+- Accessible sticky navigation with scroll-progress hairline, smooth scrolling, mobile drawer, visible `:focus-visible` states, and `prefers-reduced-motion` support
+- Featured project showcase (**ChapterWhen**) with architecture case-study modal, progressive disclosure across 6 projects, and WebP-optimized visuals
+- Experience chronology, aligned full-stack skill rows, balanced education and certification lightbox, lazy-loaded résumé preview, and one-click email copy toast
+- SEO metadata, Open Graph/Twitter tags, Schema.org JSON-LD (`Person`), `robots.txt`, and `sitemap.xml` anchored on `https://paulsonj.me/`
 
 ## Tech stack
 
-- HTML5 and CSS3 (custom design system)
-- Bootstrap 4 and jQuery for navigation collapse and project modals
-- Font Awesome
-- Cloudflare Pages
+- HTML5 and CSS3 (custom design system, CSS Grid, `@starting-style`)
+- Vanilla ES6+ JavaScript (native `<dialog>`, `IntersectionObserver`, Clipboard API)
+- Inline SVG icons
+- Cloudflare Workers Builds (`https://paulsonj.me/` and `https://portfolio.jpaulson2004.workers.dev/`)
 
 ## Run locally
 
-No installation is required. Start a static server from the repository root:
+No build step or installation is required. Start a static server from the repository root:
 
 ```powershell
 npx serve .
@@ -38,17 +38,20 @@ Open the URL shown by the server, such as `http://localhost:3000` or `http://loc
 
 ```text
 .
-├── index.html                 # Content, metadata, and structured data
-├── css/style.css              # Responsive design system and component styles
-├── js/custom.js               # Navigation and entrance animations
-├── img/                       # Portrait and project visuals
+├── index.html                 # Content, SEO metadata, structured data, and native dialogs
+├── css/style.css              # Responsive design system, layout, and motion tokens
+├── js/custom.js               # Navigation, scroll progress, reveals, dialogs, and toast
+├── img/                       # Optimized portrait, résumé preview, certificates, and project visuals
+├── docs/                      # Authoritative PDF résumé and planning documentation
 ├── robots.txt                 # Search-engine crawl rules
 └── sitemap.xml                # Canonical page sitemap
 ```
 
 ## Deployment
 
-The portfolio is deployed on Cloudflare Pages. The live production URL is `https://portfolio.jpaulson2004.workers.dev/`.
+The portfolio is automatically built and deployed via Cloudflare Workers Builds on pushes to `main`.
+- **Primary URL**: `https://paulsonj.me/`
+- **Workers URL**: `https://portfolio.jpaulson2004.workers.dev/`
 
 ## License
 
