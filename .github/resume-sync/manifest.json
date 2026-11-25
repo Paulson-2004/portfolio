@@ -4,40 +4,40 @@
     "provider": "reactive-resume",
     "resumeId": "01a212bc-0b8d-72a3-aa40-dd750c244798",
     "resumeName": "Paulson J - Master Resume",
-    "updatedAt": "2026-11-25T14:25:56.716Z",
-    "contentHash": "sha256:3312941c3c27f3a7a7c363800b9eaeb703c4f7980b984e91e5107de88b443825",
+    "updatedAt": "2026-11-25T14:31:50.588Z",
+    "contentHash": "sha256:c1206fa3f6fd8b3172ccd1f1562d7ed30d41daca4753dd73ce2e7d14cdd49bec",
     "isPublic": false
   },
   "sync": {
-    "revision": "2026-11-25T14:25:56.716Z#39e2be523693",
-    "shortVersion": "20261125-39e2be",
-    "lastSuccessfulSyncAt": "2026-11-25T14:27:21.281Z",
-    "exportTimestamp": "2026-11-25T14:27:21.281Z",
+    "revision": "2026-11-25T14:31:50.588Z#f706ee3436cd",
+    "shortVersion": "20261125-f706ee",
+    "lastSuccessfulSyncAt": "2026-11-25T15:02:05.829Z",
+    "exportTimestamp": "2026-11-25T15:02:05.829Z",
     "trigger": "workflow_dispatch"
   },
   "artifacts": {
     "pdf": {
       "path": "docs/Paulson_J_Resume.pdf",
-      "sha256": "39e2be523693665be143ca207a8e1f862398d25f0e2085c25803be6e3ff05bdf",
-      "bytes": 77952,
+      "sha256": "f706ee3436cda59cfe26acc33735a53e4e172438b575f1678713ca49abc1e4a4",
+      "bytes": 77957,
       "pageCount": 1,
-      "extractedChars": 3373
+      "extractedChars": 3383
     },
     "previewWebp": {
       "path": "img/resume-preview.webp",
-      "sha256": "44043c4170387166e4f5ede3e4dc32558762974b539f63fae9fcfb4632295a96",
-      "bytes": 354786,
+      "sha256": "8ef86373454502374629e9ed67bcdbfa9e8176777de92bf7dcdc897b13fc482e",
+      "bytes": 355072,
       "width": 1440,
       "height": 2036,
-      "inkRatio": 0.2821
+      "inkRatio": 0.2822
     },
     "previewJpg": {
       "path": "img/resume-preview.jpg",
-      "sha256": "8d6954ef15f1d2195836bdc95664e0f9b7eefcb1bce99e41e1bef89fdd12b0f7",
-      "bytes": 400520,
+      "sha256": "8ec4f3530ff098d0ef66152f535c15385211235b581f54267503e2937e45d1d9",
+      "bytes": 400718,
       "width": 1440,
       "height": 2036,
-      "inkRatio": 0.1861
+      "inkRatio": 0.186
     }
   }
 }
