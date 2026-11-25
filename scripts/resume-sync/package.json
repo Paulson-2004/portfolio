@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-resume-sync",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automated Reactive Resume synchronization, validation, and preview generation toolchain for Paulson J's portfolio.",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "sync": "node sync-resume.mjs",
+    "status": "node sync-status.mjs",
+    "verify": "node sync-resume.mjs --verify-only",
+    "test": "node --test tests/resume-sync.test.mjs"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "6.5.438",
+    "sharp": "0.35.5"
+  }
+}

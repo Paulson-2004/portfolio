@@ -1,4 +1,4 @@
-# Source control, CI, editor, and local agent files
+# Source control, CI, editor, automation scripts, and local agent files
 .git/
 .github/
 .vscode/
@@ -7,6 +7,11 @@
 .antigravity/
 .codex/
 .playwright-mcp/
+scripts/
+tests/
+node_modules/
+package.json
+package-lock.json
 
 # Documentation, agent specs, and planning files
 AGENTS.md

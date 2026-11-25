@@ -1,0 +1,292 @@
+name: Sync Reactive Resume
+
+on:
+  schedule:
+    # Poll every 15 minutes (~4 metadata requests/hr, well within Reactive Resume API limits).
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force re-export and preview rebuild even if updatedAt is unchanged'
+        required: false
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Run validation without committing updated assets to main'
+        required: false
+        type: boolean
+        default: false
+  repository_dispatch:
+    types:
+      - sync-resume
+
+permissions:
+  contents: write
+  issues: write
+  checks: read
+
+concurrency:
+  group: resume-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync-resume:
+    name: Synchronize Authoritative Résumé
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      REACTIVE_RESUME_ID: '01a212bc-0b8d-72a3-aa40-dd750c244798'
+      USING_PUSH_PAT: ${{ secrets.PORTFOLIO_PUSH_TOKEN != '' }}
+      HAS_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL != '' }}
+
+    steps:
+      - name: Check out portfolio repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          token: ${{ secrets.PORTFOLIO_PUSH_TOKEN || secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Node.js 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: 'scripts/resume-sync/package-lock.json'
+
+      - name: Install Poppler PDF renderer and sync dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends poppler-utils
+          npm ci --prefix scripts/resume-sync
+
+      - name: Synchronize, render, and validate résumé artifacts
+        id: sync
+        continue-on-error: true
+        env:
+          REACTIVE_RESUME_API_KEY: ${{ secrets.REACTIVE_RESUME_API_KEY }}
+          SYNC_TRIGGER: ${{ github.event_name }}
+          SYNC_FORCE: ${{ inputs.force || false }}
+          SYNC_DRY_RUN: ${{ inputs.dry_run || false }}
+          SYNC_STATUS_PATH: ${{ runner.temp }}/resume-sync-report.json
+        run: |
+          node scripts/resume-sync/sync-resume.mjs
+
+      - name: Verify unit and integration test suite when assets changed
+        if: steps.sync.outputs.ok == 'true' && steps.sync.outputs.changed == 'true'
+        run: |
+          npm run --prefix scripts/resume-sync verify
+          git diff --check
+
+      - name: Commit and push updated résumé assets to main
+        id: commit_push
+        if: steps.sync.outputs.ok == 'true' && steps.sync.outputs.changed == 'true' && inputs.dry_run != true
+        env:
+          SHORT_VERSION: ${{ steps.sync.outputs.short_version }}
+          SOURCE_UPDATED_AT: ${{ steps.sync.outputs.source_updated_at }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          allowed_regex='^(docs/Paulson_J_Resume\.pdf|img/resume-preview\.webp|img/resume-preview\.jpg|index\.html|\.github/resume-sync/manifest\.json)$'
+          changed_files="$(git status --porcelain=v1 --untracked-files=all | awk '{print $2}')"
+          if [[ -z "$changed_files" ]]; then
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          while IFS= read -r file_path; do
+            if [[ ! "$file_path" =~ $allowed_regex ]]; then
+              echo "Refusing unexpected modified path: $file_path" >&2
+              exit 1
+            fi
+          done <<< "$changed_files"
+
+          git add -- \
+            docs/Paulson_J_Resume.pdf \
+            img/resume-preview.webp \
+            img/resume-preview.jpg \
+            index.html \
+            .github/resume-sync/manifest.json
+
+          if git diff --cached --quiet; then
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git commit -m "chore(resume): sync portfolio resume (${SHORT_VERSION})" \
+            -m "Source: Reactive Resume ${REACTIVE_RESUME_ID} (${SOURCE_UPDATED_AT})"
+
+          pushed=false
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              pushed=true
+              break
+            fi
+            echo "Push conflict on attempt ${attempt}; rebasing onto latest origin/main..."
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              echo "Rebase conflict while pushing synced résumé; aborting safely so subsequent run can re-sync cleanly." >&2
+              exit 1
+            fi
+            npm run --prefix scripts/resume-sync verify
+          done
+
+          if [[ "$pushed" != "true" ]]; then
+            echo "Failed to push after 3 attempts." >&2
+            exit 1
+          fi
+
+          pushed_sha="$(git rev-parse HEAD)"
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+          echo "pushed_sha=${pushed_sha}" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger optional Cloudflare Workers Deploy Hook if pushing without PAT
+        if: steps.commit_push.outputs.pushed == 'true' && env.USING_PUSH_PAT != 'true' && env.HAS_DEPLOY_HOOK == 'true'
+        env:
+          CF_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}
+        run: |
+          if [[ "$CF_DEPLOY_HOOK" == https://api.cloudflare.com/* ]]; then
+            curl --fail --silent --show-error --max-time 20 -X POST "$CF_DEPLOY_HOOK" > /dev/null
+            echo "Triggered Cloudflare Workers Deploy Hook after automated push." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Skipped Cloudflare Deploy Hook due to unexpected URL scheme/host." >&2
+            exit 1
+          fi
+
+      - name: Inspect Cloudflare Workers build status on pushed commit
+        if: steps.commit_push.outputs.pushed == 'true'
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          PUSHED_SHA: ${{ steps.commit_push.outputs.pushed_sha }}
+          USING_PUSH_PAT: ${{ env.USING_PUSH_PAT }}
+          HAS_DEPLOY_HOOK: ${{ env.HAS_DEPLOY_HOOK }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const sha = process.env.PUSHED_SHA;
+            await new Promise((r) => setTimeout(r, 12000));
+            const checks = await github.rest.checks.listForRef({ owner, repo, ref: sha });
+            const cfCheck = checks.data.check_runs.find((c) => c.name === 'Workers Builds: portfolio');
+            if (cfCheck) {
+              core.notice(`Cloudflare Workers Builds detected on ${sha.slice(0, 7)}: status=${cfCheck.status}, conclusion=${cfCheck.conclusion}`);
+            } else if (process.env.USING_PUSH_PAT === 'true' || process.env.HAS_DEPLOY_HOOK === 'true') {
+              core.notice(`Commit ${sha.slice(0, 7)} pushed with PAT or Deploy Hook; Cloudflare Workers build queued.`);
+            } else {
+              core.warning(
+                `Commit ${sha.slice(0, 7)} pushed using GITHUB_TOKEN without PORTFOLIO_PUSH_TOKEN or CLOUDFLARE_DEPLOY_HOOK_URL. ` +
+                'Verify Cloudflare Workers Builds picked up the commit, or configure one of those optional secrets.'
+              );
+            }
+
+      - name: Upload synchronization status report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: resume-sync-report
+          path: ${{ runner.temp }}/resume-sync-report.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Update deduplicated synchronization failure/recovery alert issue
+        if: always()
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        env:
+          SYNC_OK: ${{ steps.sync.outputs.ok }}
+          FAILURE_CATEGORY: ${{ steps.sync.outputs.failure_category }}
+          FAILURE_REASON: ${{ steps.sync.outputs.failure_reason }}
+          COMMIT_OUTCOME: ${{ steps.commit_push.outcome }}
+          SYNCED_REVISION: ${{ steps.sync.outputs.revision }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const labelName = 'resume-sync-alert';
+            const syncSucceeded = process.env.SYNC_OK === 'true' && process.env.COMMIT_OUTCOME !== 'failure';
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+
+            try {
+              const openIssues = await github.rest.issues.listForRepo({
+                owner,
+                repo,
+                state: 'open',
+                labels: labelName,
+                per_page: 5,
+              });
+
+              if (syncSucceeded) {
+                for (const issue of openIssues.data) {
+                  await github.rest.issues.createComment({
+                    owner,
+                    repo,
+                    issue_number: issue.number,
+                    body: `Automatic recovery succeeded in [workflow run #${context.runNumber}](${runUrl}). Current synchronized revision: \`${process.env.SYNCED_REVISION || 'unchanged / up-to-date'}\`.`,
+                  });
+                  await github.rest.issues.update({
+                    owner,
+                    repo,
+                    issue_number: issue.number,
+                    state: 'closed',
+                    state_reason: 'completed',
+                  });
+                }
+                return;
+              }
+
+              const category = process.env.FAILURE_CATEGORY || (process.env.COMMIT_OUTCOME === 'failure' ? 'GIT_PUSH_ERROR' : 'SYNC_ERROR');
+              const reason = process.env.FAILURE_REASON || 'Commit or push step failed. Inspect workflow logs for details.';
+              const marker = `<!-- failure-signature:${category}:${reason.slice(0, 120)} -->`;
+              const title = `Reactive Resume sync failure (${category})`;
+              const body = [
+                'Automated Reactive Resume synchronization failed. The active portfolio résumé (`docs/Paulson_J_Resume.pdf` and previews) was left untouched.',
+                '',
+                `- **Target Resume ID:** \`${process.env.REACTIVE_RESUME_ID}\``,
+                `- **Failure Category:** \`${category}\``,
+                `- **Reason:** ${reason}`,
+                `- **Failed Run:** ${runUrl}`,
+                '',
+                'This issue closes automatically once a subsequent synchronization run succeeds.',
+                marker,
+              ].join('\n');
+
+              try {
+                await github.rest.issues.createLabel({
+                  owner,
+                  repo,
+                  name: labelName,
+                  color: 'b60205',
+                  description: 'Automated Reactive Resume sync alert (auto-closed on recovery)',
+                });
+              } catch {
+                // Label already exists.
+              }
+
+              if (openIssues.data.length === 0) {
+                await github.rest.issues.create({
+                  owner,
+                  repo,
+                  title,
+                  body,
+                  labels: [labelName],
+                });
+              } else {
+                const existing = openIssues.data[0];
+                if (!existing.body || !existing.body.includes(marker)) {
+                  await github.rest.issues.update({
+                    owner,
+                    repo,
+                    issue_number: existing.number,
+                    title,
+                    body,
+                  });
+                }
+              }
+            } catch (alertErr) {
+              core.warning(`Unable to manage sync status alert issue: ${alertErr.message}`);
+            }
+
+      - name: Fail job if synchronization or push failed
+        if: steps.sync.outputs.ok != 'true' || steps.commit_push.outcome == 'failure'
+        run: |
+          echo "Synchronization failed. Active portfolio assets were preserved." >&2
+          exit 1

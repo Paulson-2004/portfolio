@@ -34,9 +34,23 @@
 /img/*
   Cache-Control: public, max-age=2592000
 
+/img/resume-preview.webp
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
+
+/img/resume-preview.jpg
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
+
 /docs/*
   ! Content-Security-Policy
   Cache-Control: public, max-age=86400, must-revalidate
+  Content-Security-Policy: default-src 'none'; object-src 'self'; style-src 'unsafe-inline'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/docs/Paulson_J_Resume.pdf
+  ! Content-Security-Policy
+  ! Cache-Control
+  Cache-Control: public, max-age=0, must-revalidate
   Content-Security-Policy: default-src 'none'; object-src 'self'; style-src 'unsafe-inline'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
 https://portfolio.jpaulson2004.workers.dev/*
