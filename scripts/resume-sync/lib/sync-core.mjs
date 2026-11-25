@@ -344,7 +344,7 @@ export async function fetchAuthoritativeResumeMeta({
 
   return {
     resumeId: safeId,
-    resumeName: String(payload.name || 'Paulson J - Portfolio Proposed (2026)'),
+    resumeName: String(payload.name || 'Paulson J - Master Resume'),
     updatedAt,
     contentHash: computeContentHash(payload),
     ownerName: basicsName,
@@ -862,7 +862,7 @@ export async function runSyncPipeline(options = {}) {
       }
       sourceMeta = {
         resumeId: safeId,
-        resumeName: String(fromFiles.resumeName || rawJson.name || 'Paulson J - Portfolio Proposed (2026)'),
+        resumeName: String(fromFiles.resumeName || rawJson.name || 'Paulson J - Master Resume'),
         updatedAt,
         contentHash: computeContentHash({ id: safeId, name: fromFiles.resumeName || rawJson.name, data: rawJson.data || rawJson }),
         ownerName: String(rawJson?.data?.basics?.name || rawJson?.basics?.name || 'Paulson J'),

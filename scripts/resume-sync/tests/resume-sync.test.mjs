@@ -43,8 +43,8 @@ function cloneSandboxRepo() {
 function buildSampleResumeData({ updatedAt, headline = 'Java Full Stack Developer | Software Developer', summary = 'Builder' }) {
   return {
     id: AUTHORITATIVE_RESUME_ID,
-    name: 'Paulson J - Portfolio Proposed (2026)',
-    slug: 'paulson-j-portfolio-proposed-2026',
+    name: 'Paulson J - Master Resume',
+    slug: 'paulson-j-master-resume',
     tags: ['portfolio-draft'],
     isPublic: false,
     showDownloadButtons: false,
@@ -176,7 +176,7 @@ test('full end-to-end sync lifecycle: initial sync, no-op skip, AI/manual edit, 
   // Confirm raw private resume fields / API key are never stored in committed manifest
   const manifestRaw = fs.readFileSync(path.join(sandbox, REL_PATHS.manifest), 'utf8');
   assert.equal(manifestRaw.includes(state.requireApiKey), false);
-  assert.equal(manifestRaw.includes('paulson-j-portfolio-proposed-2026'), false);
+  assert.equal(manifestRaw.includes('paulson-j-master-resume'), false);
   assert.equal(manifestRaw.includes('basics'), false);
 
   // 2) Scenario 3: Unchanged resume skips PDF download & creates zero changes
